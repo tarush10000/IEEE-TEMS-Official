@@ -1,0 +1,308 @@
+@import url(https://pro.fontawesome.com/releases/v5.11.2/css/all.css);
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+body {
+    -ms-overflow-style: none;
+
+    scrollbar-width: none;
+
+}
+
+body {
+    color: white;
+    background-color: rgb(22, 22, 22);
+    overflow-x: hidden;
+}
+
+
+
+#Home {
+    overflow-x: hidden;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+#homebggreen {
+    filter: contrast(3) blur(4px);
+}
+
+#homebg>video {
+    width: 100vw;
+    filter: opacity(0.5);
+}
+
+#homecontent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#htitle {
+    font-family: 'Abril Fatface';
+    font-size: 5.5em;
+    font-weight: 100;
+    margin: 0;
+    color: white;
+}
+
+#hchanging {
+    font-family: 'Poppins';
+    font-size: 2.3em;
+    font-weight: 100;
+    width: 30vw;
+    left: 35vw;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    color: white;
+    animation: changing 1s infinite;
+}
+
+.hword {
+    margin: 0;
+    width: 30vw;
+    left: 35vw;
+    top: 55vh;
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+}
+
+.letter {
+    display: inline-block;
+    position: relative;
+    transform: translateZ(25px);
+    transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+
+#hicons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    height: 40vh;
+    top: 30vh;
+}
+
+.hicon {
+    font-size: 3.5vh;
+    margin-top: 7.375vh;
+    margin-left: 10px;
+    color: #999b99;
+}
+
+.hicon:hover {
+    color: white;
+}
+
+#hlogo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    z-index: 20;
+}
+
+#hlogo>a>img {
+    height: 6vh;
+    width: auto;
+}
+
+#htext {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    margin: 5px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    top: 15px;
+}
+
+#htext>a>p {
+    margin: 0 auto;
+    font-family: 'Poppins';
+    font-size: 1.25em;
+    font-weight: 120;
+    color: white;
+    text-align: center;
+}
+
+.hmenu {
+    position: fixed;
+    top: 1vh;
+    right: 1vw;
+    margin: 10px;
+    z-index: 25;
+}
+
+.hmenu>i {
+    font-size: 4vh;
+}
+
+@media screen and (max-width: 1200px) {
+    #homebg>video {
+        height: 100vh;
+        width: auto;
+    }
+
+    #homebggreen {
+        right: 0;
+        height: 100vh;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    #htitle {
+        font-size: 4em;
+    }
+
+    #hchanging {
+        font-size: 1.5em;
+        width: 30vw;
+        left: 35vw;
+    }
+
+    #htext>a>p {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #htitle {
+        font-size: 3em;
+    }
+
+    #hchanging {
+        font-size: 1em;
+        width: 30vw;
+        left: 35vw;
+    }
+
+    #hicons {
+        flex-direction: row;
+        z-index: 10;
+        height: 40vh;
+        bottom: 0;
+        top: 83vh;
+        left: 27vw;
+    }
+
+    .hicon {
+        font-size: 3.5vh;
+        margin-top: 0vh;
+        margin-left: 7.375vw;
+    }
+
+    #bgimg {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .bgvideo {
+        height: 100svh;
+        width: auto;
+        position: absolute;
+        bottom: 20;
+    }
+
+
+    #hlogo {
+        margin-top: 14px;
+    }
+
+    #hlogo>a>img {
+        width: 15vh;
+        height: auto;
+    }
+
+    #hlogo {
+        margin-left: 2px;
+    }
+
+    #htext>a>p {
+        font-size: 0.9em;
+    }
+}
+
+
+.menu-elt {
+
+    color: white;
+
+}
+
+.menu-elt:hover {
+    background-color: white;
+    color: black;
+}
+
+#homebg {
+    position: relative;
+    overflow: hidden;
+
+}
+
+#homebg>video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    filter: opacity(0.5);
+}
+
+#bgimg {
+    filter: contrast(3) blur(4px);
+}
+
+#homebg {
+    position: relative;
+    overflow: hidden;
+
+}

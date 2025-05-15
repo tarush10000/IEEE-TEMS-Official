@@ -1,0 +1,131 @@
+#About {
+    background-color: rgb(22, 22, 22);
+    padding-top: 60px;
+    margin: auto;
+    width: 85%;
+    
+  }
+  
+  .about-main {
+    box-shadow: 0 0 0 0 rgba(19, 135, 19, 0.8);
+    border: 1px solid rgba(19, 135, 19, 0.8);
+    padding: 30px;
+    margin-top: 50px;
+  }
+  
+  #About h2 {
+    text-align: center;
+    color: white;
+    font-size: 3.6vw;
+   
+  
+  }
+  
+  #About span {
+    background-image: linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+  }
+  
+  .about-sub {
+    text-align: center;
+    color: white;
+    font-size: 2.5vw;
+    
+    
+  }
+  
+  .about-content {
+    margin-left: 10px;
+    font-size: 1.38vw;
+    text-align: left;
+  }
+  
+  .flex-element {
+    width: 50%;
+  }
+  
+  .flex-container {
+    display: flex;
+    
+  }
+  
+  .flex-element img {
+    width: 100%;
+  }
+
+  .imgg{
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .flex-container {
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap;
+      padding-top: 0;
+    }
+  
+    .flex-element-2 {
+      width: 95%;
+    }
+  
+    .about-content {
+      text-align: left;
+    }
+  
+    .flex-element-1 {
+      width: 80%;
+      margin: auto;
+    }
+  
+    .about-content {
+      padding-top: 20px;
+      font-size: 2vw;
+      margin-left: 0px;
+    }
+  
+    #About {
+      padding-bottom: 0px;
+    }
+  
+    .about-main {
+      padding: 20px 20px 0px 20px;
+    }
+    .imgg{
+      margin-top: 0px;
+      
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    #About h2 {
+      font-size: 5.5vw;
+    }
+
+    #About{
+      padding-top: 40px;
+    }
+  
+    .flex-element-1 {
+      width: 100%;
+      margin: auto;
+      padding-right: 10px;
+    }
+  
+    .about-sub {
+      font-size: 4vw;
+    }
+  
+    .about-main {
+      padding: 20px 6px 0px 20px;
+    }
+  
+    .about-content {
+      padding-top: 10px;
+      font-size: 3vw;
+    }
+  }
+  
+  

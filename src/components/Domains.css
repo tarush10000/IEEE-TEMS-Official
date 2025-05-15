@@ -1,0 +1,90 @@
+.nav-link:focus {
+  outline: none;
+  color: black !important;
+}
+
+.nav-link {
+  font-style: "Ubuntu";
+  font-weight: bold;
+  color: white;
+}
+
+.nav-link:hover {
+  background-color: white;
+  color: black;
+}
+
+.domaintext {
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.border {
+  margin-left: 12vw;
+  width: 72%;
+}
+
+.icons {
+  font-size: 2em;
+}
+
+.nav-item:hover {
+  background-color: rgb(245, 244, 244);
+  color: black;
+  border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .txt {
+    display: none;
+  }
+
+  .nav-link:focus {
+    outline: none;
+    background-color: white !important;
+
+  }
+
+  .icons {
+    padding-right: 9px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width:900px) {
+  .domaintext {
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .border {
+    margin-left: 5vw;
+    width: 90%;
+  }
+
+  .icons {
+    padding-right: 7px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .domaintext {
+    font-size: 14px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .border {
+    margin: auto;
+    width: 93%;
+  }
+
+  .icons {
+    font-size: 1.5em;
+    padding-right: 5px;
+  }
+
+}

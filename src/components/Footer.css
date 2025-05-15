@@ -1,0 +1,18 @@
+.top{
+    display: inline-block;
+  }
+  
+  .bottom{
+    color: rgb(149, 149, 149);
+  }
+  
+  .info{
+    color:rgb(206, 205, 205);
+  }
+  
+  #SW{
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+  }
+  
