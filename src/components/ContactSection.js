@@ -8,7 +8,8 @@ const ContactSection = () => {
       style={{
         backgroundColor: "rgb(22, 22, 22)",
         paddingBottom: "100px",
-        
+        paddingTop: "100px", // Added for scroll offset
+        scrollMarginTop: "80px", // Ensures correct scroll position
       }}
     >
       <br />
