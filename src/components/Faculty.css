@@ -1,167 +1,39 @@
-.container2{
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cherry+Bomb+One&family=Explora&family=Funnel+Display:wght@300..800&family=Honk&family=Monoton&family=Notable&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+80s+Fade&family=Varela+Round&display=swap');
+
+
+#Faculty {
+    padding: 2rem 0;
+    background-color: #121212;
+    width: 100%;
+}
+
+.faculty-container {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: auto;
-    margin-top: 5vh;
-    gap: 6vw;
-    overflow: hidden;
-  }
-  
-  .card2{
-    width: 17vw;
-    height:55vh;
-    background-color: transparent;
-    border: none;
-  }
-  
-  .card__2{
-    position: relative;
-    width: 15vw;
-    height:40vh;
-    border-radius: 23px;
-    justify-content: center;
-    align-content: center;
+    align-items: flex-start; /* Changed from center to flex-start */
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faculty-card-wrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 3vh;
-    margin-bottom: 0%;
-  }
-  
-  .card-color__2{
-    background: #282B30;
-  }
-  
-  .image2{
-    position: relative;
-    width: 12.5vw;
-    height: 15.67vw;
-    border-radius: 5%;
-    margin: 0 auto;
-    transition: all 1s ease;
-    animation: anim2 1s forwards;
-    padding-bottom: 5px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.faculty-name-below {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
     text-align: center;
-  }
-  
-  .card-img2{
-    width: 12.5vw;
-    height: 15.67vw;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10%;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    padding-bottom: 5px;
-  }
-  
-  .content2{
-    padding-top: 5px;
-    padding-bottom: 10px;
-    height: auto;
-    position: relative;
-    margin: 0 auto;
-    transition: all 1s ease;
-    animation: anim2 1s forwards;
-  }
-  
-  @media screen and (min-width: 601px) and (max-width:900px) {
-    .card2{
-      width: 25vw;
-      height:38vh;
-    }
-    
-    .card__2{
-      width: 22vw;
-      height:23vh;
-      padding-left: 0%;
-    }
-  
-    .content2{
-      margin: 0;
-    }
-  
-    .container2{
-      gap: 0;
-    }
-    
-  }
-  
-  @media screen and (max-width: 600px) {
-    .container2{
-      flex-direction: column;
-    }
-  
-    .image2{
-      width: 30vw;
-      height: 40vw;
-    }
-    
-    .card-img2{
-      width: 30vw;
-      height: 40vw;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 5%;
-      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    }
-    
-  
-    .card2{
-      width: 50vw;
-      height:43vh;
-    }
-    
-    .card__2{
-      width: 50vw;
-      height:28vh;
-      padding-left: 0%;
-    }
-  
-    .content2{
-      margin: 0;
-    }
-  
-  }
-  
-  @media screen and (max-width: 400px){
-    .container2{
-      flex-direction: column;
-    }
-    #htext > a > p {
-      position: relative;
-      left: 20px;
-    }
-  
-    .image2{
-      width: 30vw;
-      height: 40vw;
-    }
-    
-    .card-img2{
-      width: 30vw;
-      height: 40vw;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 5%;
-      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    }
-    
-  
-    .card2{
-      width: 50vw;
-      height:39vh;
-    }
-    
-    .card__2{
-      width: 50vw;
-      height:25vh;
-      padding-left: 0%;
-    }
-  
-    .content2{
-      margin: 0;
-    }
-  
-  }
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    font-family: "Funnel Display", sans-serif;
+    margin-left: -10px;
+}
+
