@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import "./Board.css";
+import TiltedCard from "./TiltedCard";
 
 const Board = () => {
-  const [activeTab, setActiveTab] = useState("2024");
-  const [activeYearBoard, setActiveYearBoard] = useState("Board2024");
+  const [activeTab, setActiveTab] = useState("2025");
+  const [activeYearBoard, setActiveYearBoard] = useState("Board2025");
 
   const handleTabClick = (year) => {
     setActiveTab(year);
-    setActiveYearBoard(year === "2024" ? "Board2024" : "Board2023");
+    setActiveYearBoard(year === "2025" ? "Board2025" : "Board2024");
   };
 
   useEffect(() => {
@@ -35,6 +36,174 @@ const Board = () => {
       tabs.removeEventListener("click", handleTabSelector);
     };
   }, []);
+
+  // Board member data remains the same...
+
+  const board2025 = [
+    {
+      name: "TARUSH AGARWAL",
+      position: "CHAIRPERSON",
+      image: "board/2025/tarush.webp",
+      instagram: "https://www.instagram.com/tar10000/?hl=en",
+      linkedin: "https://www.linkedin.com/in/tarush10000/"
+    },
+    {
+      name: "HARDIK BANSAL",
+      position: "VICE-CHAIRPERSON",
+      image: "board/2025/bansal.webp",
+      instagram: "https://www.instagram.com/hardik_.bansal/?hl=en",
+      linkedin: "https://www.linkedin.com/in/hardikbansal2064/"
+    },
+    {
+      name: "ARADHAY HARSHIT",
+      position: "SECRETARY",
+      image: "board/2025/Aradhay.webp",
+      instagram: "https://www.instagram.com/anshul110904/?hl=en",
+      linkedin: "https://www.linkedin.com/in/aradhay-harshit-44211b26a/"
+    },
+    {
+      name: "YASHITA BERRY",
+      position: "CO-SECRETARY",
+      image: "board/2025/Yashita.webp",
+      instagram: "https://www.instagram.com/yashita_berry/?hl=en",
+      linkedin: "https://www.linkedin.com/in/yashita-berry-695578277/"
+    },
+    {
+      name: "YASHVI GOYAL",
+      position: "MANAGEMENT HEAD",
+      image: "board/2025/Yashvi.webp",
+      instagram: "https://www.instagram.com/yashvi_goyal04/?hl=en",
+      linkedin: "https://www.linkedin.com/in/yashvi-goyal-35a248281/"
+    },
+    {
+      name: "HARDIK SINGLA",
+      position: "TECHNICAL HEAD",
+      image: "board/2025/Singla.webp",
+      instagram: "https://www.instagram.com/hardik._.singla/?hl=en",
+      linkedin: "https://www.linkedin.com/in/hardik-singla-163112232/"
+    },
+    {
+      name: "RHYTHM GUPTA",
+      position: "EVENTS HEAD",
+      image: "board/2025/Rhythm.webp",
+      instagram: "https://www.instagram.com/_rhythm.14_/?hl=en",
+      linkedin: "https://www.linkedin.com/in/rhythm-gupta-520077253/"
+    },
+    {
+      name: "JIYA PALIWAL",
+      position: "DESIGN HEAD",
+      image: "board/2025/Jiya.webp",
+      instagram: "https://www.instagram.com/jiya_paliwal_/?hl=en",
+      linkedin: "https://www.linkedin.com/in/jiya-paliwal3414/"
+    },
+    {
+      name: "KARTIK KAR",
+      position: "PROJECTS HEAD",
+      image: "board/2025/Kartik.webp",
+      instagram: "https://www.instagram.com/kartik_kar_19/?hl=en",
+      linkedin: "https://www.linkedin.com/in/kartik-kar/"
+    },
+    {
+      name: "MAITREYA CHAVAN",
+      position: "FINANCE HEAD",
+      image: "board/2025/Maitreya.webp",
+      instagram: "https://www.instagram.com/_maitreyaaaa_/?hl=en",
+      linkedin: "https://www.linkedin.com/in/maitreya-chavan-65a638250/"
+    },
+    {
+      name: "BHAVYA SHUKLA",
+      position: "PUBLICITY HEAD",
+      image: "board/2025/Bhavya.webp",
+      instagram: "https://www.instagram.com/bhavyaaa._1/?hl=en",
+      linkedin: "https://www.linkedin.com/in/bhavya-shukla-b96a5a288/"
+    },
+    {
+      name: "HARSHITHA K.",
+      position: "EDITORIAL HEAD",
+      image: "board/2025/Harshita.webp",
+      instagram: "https://www.instagram.com/har_shitha__kss_/?hl=en",
+      linkedin: "https://www.linkedin.com/in/harshitha-kommareddy-b087a4274/"
+    },
+    {
+      name: "DIVYAM SINGHVI",
+      position: "R & D HEAD",
+      image: "board/2025/Divyam.webp",
+      instagram: "https://www.instagram.com/divyam_singhvi/?hl=en",
+      linkedin: "https://www.linkedin.com/in/divyam-singhvi-950257261/"
+    }
+  ];
+
+  // Board member data for 2024
+  const board2024 = [
+    {
+      name: "PIYUSH PADIA",
+      position: "CHAIRPERSON",
+      image: "board/2024/Piyush.webp",
+      instagram: "https://www.instagram.com/piyush_padia?igsh=emtyZXprMG5uMGkx",
+      linkedin: "https://www.linkedin.com/in/piyush-padia-a47766215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+    {
+      name: "SRIHITHA REDDY",
+      position: "VICE-CHAIRPERSON",
+      image: "board/2024/Srihitha.webp",
+      linkedin: "https://www.linkedin.com/in/-srihitha-reddy"
+    },
+    {
+      name: "ANISHA CHANDAVARKAR",
+      position: "SECRETARY",
+      image: "board/2024/Anisha.webp",
+      instagram: "https://www.instagram.com/anisha_c26?igsh=dGF4ZjJuNTR6dTY1",
+      linkedin: "https://www.linkedin.com/in/anisha-chandavarkar?trk=contact-info"
+    },
+    {
+      name: "SACHITA MANNA",
+      position: "CO-SECRETARY",
+      image: "board/2024/Sachita.webp",
+      linkedin: "https://www.linkedin.com/in/sachita-manna-98340824b/"
+    },
+    {
+      name: "VAKATI SAMANVITHA",
+      position: "MANAGEMENT HEAD",
+      image: "board/2024/Samanvitha.webp",
+      instagram: "https://www.instagram.com/samanvitha_reddy_16?igsh=b3dhbG9kMWlmM3pt&utm_source=qr",
+      linkedin: "https://www.linkedin.com/in/samanvitha-reddy-9aa84b21b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+    {
+      name: "BHARATH MUDDULURU",
+      position: "TECHNICAL HEAD",
+      image: "board/2024/Bharath.webp",
+      instagram: "https://www.instagram.com/bharath0616?igsh=MTljaWUzYno5OXd3MA==",
+      linkedin: "https://www.linkedin.com/in/bharath-mudduluru-a6a331139?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+    {
+      name: "HARSH PANDEY",
+      position: "EVENTS HEAD",
+      image: "board/2024/Harsh.webp",
+      instagram: "https://www.instagram.com/harsh._pndy20/?next=%2F",
+      linkedin: "https://www.linkedin.com/in/harsh-pandey-fd21/"
+    },
+    {
+      name: "PRIYANSH KOTAK",
+      position: "PROJECTS HEAD",
+      image: "board/2024/Priyansh.webp",
+      instagram: "https://www.instagram.com/priyansh_kotak_/",
+      linkedin: "https://www.linkedin.com/in/priyanshkotak/"
+    },
+    {
+      name: "CHUNDRU SAI SRIYA",
+      position: "EDITORIAL HEAD",
+      image: "board/2024/Sriya.webp",
+      instagram: "https://www.instagram.com/17_sriya?igsh=ZTE0bG1uajlwODY4",
+      linkedin: "https://www.linkedin.com/in/sriya-chundru-881301268?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+    {
+      name: "TAPESH KHANDELWAL",
+      position: "FINANCE HEAD",
+      image: "board/2024/Tapesh.webp",
+      instagram: "https://www.instagram.com/tapeshkhandelwal?igsh=aml6N2x1cXEyNnBs",
+      linkedin: "https://www.linkedin.com/in/tapesh-khandelwal-7b5498246/"
+    }
+  ];
 
   return (
     <div>
@@ -66,6 +235,24 @@ const Board = () => {
             <div className="selector"></div>
             <a
               href="#Board"
+              id="Board-switch-2025"
+              className={
+                activeTab === "2025"
+                  ? "active no-border-on-link"
+                  : "no-border-on-link"
+              }
+              style={{
+                backgroundColor: activeTab === "2025" ? "green" : "transparent",
+                color: activeTab === "2025" ? "white" : "inherit",
+                borderRadius: activeTab === "2025" ? "50px" : "0",
+                transition: "all 0.3s ease-in-out",
+              }}
+              onClick={() => handleTabClick("2025")}
+            >
+              2025
+            </a>
+            <a
+              href="#Board"
               id="Board-switch-2024"
               className={
                 activeTab === "2024"
@@ -80,838 +267,100 @@ const Board = () => {
               }}
               onClick={() => handleTabClick("2024")}
             >
-              2025
-            </a>
-            <a
-              href="#Board"
-              id="Board-switch-2023"
-              className={
-                activeTab === "2023"
-                  ? "active no-border-on-link"
-                  : "no-border-on-link"
-              }
-              style={{
-                backgroundColor: activeTab === "2023" ? "green" : "transparent",
-                color: activeTab === "2023" ? "white" : "inherit",
-                borderRadius: activeTab === "2023" ? "50px" : "0",
-
-                transition: "all 0.3s ease-in-out",
-              }}
-              onClick={() => handleTabClick("2023")}
-            >
               2024
             </a>
           </nav>
         </div>
+
+        {/* 2025 Board */}
         <div
-          className={`Board2024 board-content ${
-            activeYearBoard === "Board2024" ? "active-year-board highlight" : ""
+          className={`Board2025 board-content ${
+            activeYearBoard === "Board2025" ? "active-year-board highlight" : ""
           }`}
-          id="Board2024"
+          id="Board2025"
         >
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/tarush.webp"
-                    className="card-img"
-                    alt="Tarush, IEEE TEMS VIT"
+          <div className="tilted-cards-container">
+            {board2025.map((member, index) => (
+              <div key={index} className="member-card-container">
+                <div className="tilted-card-wrapper">
+                  <TiltedCard
+                    imageSrc={member.image}
+                    altText={`${member.name}, IEEE TEMS VIT`}
+                    containerHeight="250px"
+                    containerWidth="250px"
+                    imageHeight="250px"
+                    imageWidth="250px"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.1}
+                    showMobileWarning={false}
+                    showTooltip={false}
+                    displayOverlayContent={false}
                   />
                 </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Tarush Agarwal</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Chairperson</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/tar10000/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/tarush10000/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
+                <div className="member-info-below">
+                  <h3 className="member-name">{member.name}</h3>
+                  <p className="member-position">{member.position}</p>
+                  <div className="social-links">
+                    {member.instagram && (
+                      <a href={member.instagram} target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-instagram"></i>
+                      </a>
+                    )}
+                    {member.linkedin && (
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                   style={{background:"#EDEADE"}}
-                    src="board/2025/bansal.webp"
-                    className="card-img"
-                    alt="Hardik, IEEE TEMS VIT"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Hardik Bansal</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Vice-Chairperson</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/hardik_.bansal/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/hardikbansal2064/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Aradhay.webp"
-                    className="card-img"
-                    alt="Aradhay, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Aradhay Harshit</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Secretary</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/anshul110904/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/aradhay-harshit-44211b26a/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Yashita.webp"
-                    className="card-img"
-                    alt="Yashita, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Yashita Berry</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Co-Secretary</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/yashita_berry/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/yashita-berry-695578277/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Yashvi.webp"
-                    className="card-img"
-                    alt="Yashvi, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Yashvi Goyal</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Management Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/yashvi_goyal04/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/yashvi-goyal-35a248281/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Singla.webp"
-                    className="card-img"
-                    alt="Hardik, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Hardik Singla</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Technical Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/hardik._.singla/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/hardik-singla-163112232/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Rhythm.webp"
-                    className="card-img"
-                    alt="Rhythm, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Rhythm Gupta</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Events Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/_rhythm.14_/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/rhythm-gupta-520077253/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
+        {/* 2024 Board */}
         <div
           className={`Board2024 board-content ${
-            activeTab === "2024" ? "active-year-board" : ""
+            activeYearBoard === "Board2024" ? "active-year-board" : ""
           }`}
           id="Board2024"
         >
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Jiya.webp"
-                    className="card-img"
-                    alt="Jiya, IEEE TEMS Vellore"
+          <div className="tilted-cards-container">
+            {board2024.map((member, index) => (
+              <div key={index} className="member-card-container">
+                <div className="tilted-card-wrapper">
+                  <TiltedCard
+                    imageSrc={member.image}
+                    altText={`${member.name}, IEEE TEMS VIT`}
+                    containerHeight="250px"
+                    containerWidth="250px"
+                    imageHeight="250px"
+                    imageWidth="250px"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.1}
+                    showMobileWarning={false}
+                    showTooltip={false}
+                    displayOverlayContent={false}
                   />
                 </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Jiya Paliwal</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Design Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/jiya_paliwal_/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/jiya-paliwal3414/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
+                <div className="member-info-below">
+                  <h3 className="member-name">{member.name}</h3>
+                  <p className="member-position">{member.position}</p>
+                  <div className="social-links">
+                    {member.instagram && (
+                      <a href={member.instagram} target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-instagram"></i>
+                      </a>
+                    )}
+                    {member.linkedin && (
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-linkedin"></i>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Kartik.webp"
-                    className="card-img"
-                    alt="Projects, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Kartik Kar</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Projects Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/kartik_kar_19/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/kartik-kar/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Maitreya.webp"
-                    className="card-img"
-                    alt="Maitreya, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Maitreya Chavan</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Finance Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/_maitreyaaaa_/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/maitreya-chavan-65a638250/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className={`Board2024 board-content ${
-            activeTab === "2024" ? "active-year-board" : ""
-          }`}
-          id="Board2024"
-        >
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Bhavya.webp"
-                    className="card-img"
-                    alt="Bhavya, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Bhavya Shukla</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Publicity Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/bhavyaaa._1/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/bhavya-shukla-b96a5a288/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Harshita.webp"
-                    className="card-img"
-                    alt="Harshitha, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white", fontSize: "large" }}>
-                      Harshitha Kommareddy
-                    </p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Editorial Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/har_shitha__kss_/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/harshitha-kommareddy-b087a4274/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                  style={{background:"#EDEADE"}}
-                    src="board/2025/Divyam.webp"
-                    className="card-img"
-                    alt="Divyam, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Divyam Singhvi</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>R & D Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/divyam_singhvi/?hl=en"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/divyam-singhvi-950257261/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`Board2023 board-content ${
-            activeYearBoard === "Board2023" ? "active-year-board" : ""
-          }`}
-          id="Board2023"
-        >
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Piyush.webp"
-                    className="card-img"
-                    alt="Piyush Padia, IEEE TEMS VIT"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Piyush Padia</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Chairperson</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/piyush_padia?igsh=emtyZXprMG5uMGkx"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/piyush-padia-a47766215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Srihitha.webp"
-                    className="card-img"
-                    alt="Srihitha Reddy, IEEE TEMS VIT"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Srihitha Reddy</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Vice-Chairperson</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.linkedin.com/in/-srihitha-reddy"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Anisha.webp"
-                    className="card-img"
-                    alt="Anisha, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Anisha Chandavarkar</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Secretary</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/anisha_c26?igsh=dGF4ZjJuNTR6dTY1"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/anisha-chandavarkar?trk=contact-info"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Sachita.webp"
-                    className="card-img"
-                    alt="Sachita, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Sachita Manna</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Co-Secretary</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.linkedin.com/in/sachita-manna-98340824b/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Samanvitha.webp"
-                    className="card-img"
-                    alt="Samanvitha, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Vakati Samanvitha</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Management Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/samanvitha_reddy_16?igsh=b3dhbG9kMWlmM3pt&utm_source=qr"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/samanvitha-reddy-9aa84b21b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Bharath.webp"
-                    className="card-img"
-                    alt="Bharath, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Bharath Mudduluru</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Technical Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/bharath0616?igsh=MTljaWUzYno5OXd3MA=="
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/bharath-mudduluru-a6a331139?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Harsh.webp"
-                    className="card-img"
-                    alt="Harsh, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Harsh Pandey</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Events Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/harsh._pndy20/?next=%2F"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/harsh-pandey-fd21/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Priyansh.webp"
-                    className="card-img"
-                    alt="Priyansh, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Priyansh Kotak</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Project Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/priyansh_kotak_/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/priyanshkotak/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Sriya.webp"
-                    className="card-img"
-                    alt="Sriya, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Chundru Sai Sriya</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Editorial Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/17_sriya?igsh=ZTE0bG1uajlwODY4"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/sriya-chundru-881301268?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="card" style={{ textAlign: "center" }}>
-              <div className="card__1 card-color__1">
-                <div className="image">
-                  <img
-                    src="board/2024/Tapesh.webp"
-                    className="card-img"
-                    alt="Tapesh, IEEE TEMS Vellore"
-                  />
-                </div>
-                <div className="content">
-                  <div className="card-heading" id="board-name">
-                    <p style={{ color: "white" }}>Tapesh Khandelwal</p>
-                  </div>
-                  <div className="card-heading" id="board-post">
-                    <p style={{ color: "green" }}>Finance Head</p>
-                  </div>
-                  <div className="social">
-                    <a
-                      href="https://www.instagram.com/tapeshkhandelwal?igsh=aml6N2x1cXEyNnBs"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-instagram fa-2x"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/tapesh-khandelwal-7b5498246/"
-                      target="_blank" rel="noopener noreferrer"
-                    >
-                      <i className="fa-brands fa-linkedin fa-2x"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -920,3 +369,32 @@ const Board = () => {
 };
 
 export default Board;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
