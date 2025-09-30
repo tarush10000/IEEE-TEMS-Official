@@ -181,6 +181,7 @@ const HomePage = () => {
               zIndex: "10",
               transition: "right 0.3s ease-in-out",
               paddingTop: "50px",
+              overflowY: "auto",
             }}
           >
             <nav className="sidebar" style={{ width: "100%" }}>

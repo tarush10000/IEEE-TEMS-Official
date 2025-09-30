@@ -57,7 +57,11 @@ const Footer = () => {
 
          
           <div className="col-lg-2 col-6 text-center p-2 mx-auto">
-            <h6 className="fw-bold mb-4">Contact Us</h6>
+            <h6 className="fw-bold mb-4">
+              <a href="#Contact" style={{ color: "white", textDecoration: "none" }}>
+      Contact Us
+    </a>
+            </h6>
             <div className="info">
               <p>
                 <img
