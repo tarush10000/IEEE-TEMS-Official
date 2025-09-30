@@ -19,6 +19,8 @@ import Footer from "../components/Footer";
 import Memories from "../components/Memories";
 import "../CSS/MainPage.css";
 
+import Developers from "../components/Developers";
+
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [changingText, setChangingText] = useState("");
@@ -181,6 +183,7 @@ const HomePage = () => {
               zIndex: "10",
               transition: "right 0.3s ease-in-out",
               paddingTop: "50px",
+              overflowY: "auto",
             }}
           >
             <nav className="sidebar" style={{ width: "100%" }}>
@@ -260,6 +263,7 @@ const HomePage = () => {
       <Board />
       <Faculty />
       <Memories />
+      <Developers />
       <ContactSection />
       <Footer />
     </div>

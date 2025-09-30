@@ -20,11 +20,6 @@ const Domains = () => {
       content:
         "We empower members to master problem-solving and algorithmic challenges through a variety of engaging initiatives, including contests, workshops, and personalized mentorship programs. By providing a supportive ecosystem, we enable individuals to sharpen their analytical thinking, coding skills, and innovative approaches to complex problems. Our flagship events, CodeRush and CodeClash, serve as benchmarks of excellence in competitive programming. CodeClash, in particular, has gained national recognition, attracting over 1,000 participants from across the country. These platforms foster excellence, collaboration, and competition at the highest level..",
     },
-    devops: {
-      title: "DevOps",
-      content:
-        "IEEE TEMS serves as a dynamic platform that actively bridges the gap between development and operations, emphasizing the principles of automation, collaboration, and continuous improvement. Our comprehensive approach encompasses a wide range of activities, including the hosting of engaging DevOps workshops, hackathons, and insightful discussions on industry best practices.Within our vibrant community, members embark on a journey of discovery and skill enhancement, learning to streamline software development and deployment processes. This not only promotes efficiency and reliability but also fosters a culture of innovation in the rapidly evolving tech landscape.",
-    },
     design: {
       title: "Design",
       content:

@@ -19,7 +19,7 @@ const About = () => {
             style={{ textAlign: "center" }}
           >
             <img
-              src="imgabt.webp"
+              src="about_us.jpg"
               className="imgg"
               style={{ borderRadius: "5px" }}
               alt="IEEE TEMS"
@@ -27,18 +27,11 @@ const About = () => {
           </div>
           <div className="flex-element-2 flex-element">
             <p className="about-content" style={{ marginTop: "0px" , textAlign:'justify'}}>
-              We are a dynamic and forward-thinking community of students
-              dedicated to advancing the frontiers of technology and engineering
-              management. Our chapter serves as a vibrant hub for innovation,
-              leadership development, and collaboration.
               <br />
-              At IEEE TEMS VIT, our mission is to ignite curiosity and drive
-              change. We thrive on fostering innovation by providing an
-              environment where creative ideas flourish, projects come to life,
-              and innovation is celebrated. Through immersive workshops,
-              enlightening seminars, and active participation in tech-focused
-              competitions, our members gain hands-on experience and stay at the
-              forefront of technological advancements.
+              At IEEE TEMS VIT, our mission is to spark curiosity and inspire change. 
+              We cultivate an ecosystem where creativity thrives, ideas transform into impactful projects, and innovation is truly valued. 
+              Through engaging workshops, insightful seminars, and active involvement in technology-driven competitions, we 
+              empower our members with hands-on experience and keep them ahead in the ever-evolving world of technology.
             </p>
           </div>
         </div>
