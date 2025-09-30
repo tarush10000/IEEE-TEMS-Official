@@ -19,6 +19,8 @@ import Footer from "../components/Footer";
 import Memories from "../components/Memories";
 import "../CSS/MainPage.css";
 
+import Developers from "../components/Developers";
+
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [changingText, setChangingText] = useState("");
@@ -261,6 +263,7 @@ const HomePage = () => {
       <Board />
       <Faculty />
       <Memories />
+      <Developers />
       <ContactSection />
       <Footer />
     </div>
