@@ -118,7 +118,7 @@ const Board = () => {
       linkedin: "https://www.linkedin.com/in/bhavya-shukla-b96a5a288/"
     },
     {
-      name: "HARSHITHA KOMMAREDDY",
+      name: "HARSHITHA K.",
       position: "EDITORIAL HEAD",
       image: "board/2025/Harshita.webp",
       instagram: "https://www.instagram.com/har_shitha__kss_/?hl=en",
@@ -137,68 +137,68 @@ const Board = () => {
   const board2024 = [
     {
       name: "PIYUSH PADIA",
-      position: "Chairperson",
+      position: "CHAIRPERSON",
       image: "board/2024/Piyush.webp",
       instagram: "https://www.instagram.com/piyush_padia?igsh=emtyZXprMG5uMGkx",
       linkedin: "https://www.linkedin.com/in/piyush-padia-a47766215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
-      name: "Srihitha Reddy",
-      position: "Vice-Chairperson",
+      name: "SRIHITHA REDDY",
+      position: "VICE-CHAIRPERSON",
       image: "board/2024/Srihitha.webp",
       linkedin: "https://www.linkedin.com/in/-srihitha-reddy"
     },
     {
-      name: "Anisha Chandavarkar",
-      position: "Secretary",
+      name: "ANISHA CHANDAVARKAR",
+      position: "SECRETARY",
       image: "board/2024/Anisha.webp",
       instagram: "https://www.instagram.com/anisha_c26?igsh=dGF4ZjJuNTR6dTY1",
       linkedin: "https://www.linkedin.com/in/anisha-chandavarkar?trk=contact-info"
     },
     {
-      name: "Sachita Manna",
-      position: "Co-Secretary",
+      name: "SACHITA MANNA",
+      position: "CO-SECRETARY",
       image: "board/2024/Sachita.webp",
       linkedin: "https://www.linkedin.com/in/sachita-manna-98340824b/"
     },
     {
-      name: "Vakati Samanvitha",
-      position: "Management Head",
+      name: "VAKATI SAMANVITHA",
+      position: "MANAGEMENT HEAD",
       image: "board/2024/Samanvitha.webp",
       instagram: "https://www.instagram.com/samanvitha_reddy_16?igsh=b3dhbG9kMWlmM3pt&utm_source=qr",
       linkedin: "https://www.linkedin.com/in/samanvitha-reddy-9aa84b21b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
-      name: "Bharath Mudduluru",
-      position: "Technical Head",
+      name: "BHARATH MUDDULURU",
+      position: "TECHNICAL HEAD",
       image: "board/2024/Bharath.webp",
       instagram: "https://www.instagram.com/bharath0616?igsh=MTljaWUzYno5OXd3MA==",
       linkedin: "https://www.linkedin.com/in/bharath-mudduluru-a6a331139?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
-      name: "Harsh Pandey",
-      position: "Events Head",
+      name: "HARSH PANDEY",
+      position: "EVENTS HEAD",
       image: "board/2024/Harsh.webp",
       instagram: "https://www.instagram.com/harsh._pndy20/?next=%2F",
       linkedin: "https://www.linkedin.com/in/harsh-pandey-fd21/"
     },
     {
-      name: "Priyansh Kotak",
-      position: "Project Head",
+      name: "PRIYANSH KOTAK",
+      position: "PROJECTS HEAD",
       image: "board/2024/Priyansh.webp",
       instagram: "https://www.instagram.com/priyansh_kotak_/",
       linkedin: "https://www.linkedin.com/in/priyanshkotak/"
     },
     {
-      name: "Chundru Sai Sriya",
-      position: "Editorial Head",
+      name: "CHUNDRU SAI SRIYA",
+      position: "EDITORIAL HEAD",
       image: "board/2024/Sriya.webp",
       instagram: "https://www.instagram.com/17_sriya?igsh=ZTE0bG1uajlwODY4",
       linkedin: "https://www.linkedin.com/in/sriya-chundru-881301268?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
     {
-      name: "Tapesh Khandelwal",
-      position: "Finance Head",
+      name: "TAPESH KHANDELWAL",
+      position: "FINANCE HEAD",
       image: "board/2024/Tapesh.webp",
       instagram: "https://www.instagram.com/tapeshkhandelwal?igsh=aml6N2x1cXEyNnBs",
       linkedin: "https://www.linkedin.com/in/tapesh-khandelwal-7b5498246/"

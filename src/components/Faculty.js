@@ -7,12 +7,12 @@ import './TiltedCard.css';
 const Faculty = () => {
   const facultyMembers = [
     {
-      name: "Dr. Venugopal P",
+      name: "Dr. VENUGOPAL P",
       image: "Coordinator/Venugopal.webp",
       alt: "Dr. Venugopal, IEEE TEMS Vellore"
     },
     {
-      name: "Dr. Subashini R",
+      name: "Dr. SUBASHINI R",
       image: "Coordinator/Subashini.webp",
       alt: "Mrs. Subashini, IEEE TEMS Vellore"
     }

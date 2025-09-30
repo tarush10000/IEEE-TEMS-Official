@@ -309,6 +309,7 @@
     grid-template-columns: 1fr;
     padding: 1rem 1rem 2rem 1rem; /* Less side padding */
     justify-items: center; /* Center cards in grid */
+    margin-top: 70px;
   }
 
   .member-card-container {
