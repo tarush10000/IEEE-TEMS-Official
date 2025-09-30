@@ -262,9 +262,8 @@ const HomePage = () => {
       <Blog />
       <Board />
       <Faculty />
-      <Memories />
-      <Developers />
-      <ContactSection />
+  <Memories />
+  <ContactSection />
       <Footer />
     </div>
   );
