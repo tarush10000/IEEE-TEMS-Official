@@ -3,27 +3,10 @@ import "./Memories.css";
 
 const Memories = () => {
   return (
-    <div>
-      <h2
-        style={{
-          textAlign: "center",
-          paddingTop: "25px",
-          color: "white",
-          marginBottom: "0px",
-        }}
-      >
-        <span
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-            backgroundSize: "100% 5px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "0 100%",
-          }}
-        >
-          <strong id="memories" style={{ fontSize: "1.3em" }}>
-            Memories
-          </strong>
+    <section id="Memories">
+      <h2 style={{paddingTop:"0px"}}>
+        <span>
+          <strong>Memories</strong>
         </span>
       </h2>
       <section id="Memories">
@@ -230,7 +213,7 @@ const Memories = () => {
           </button>
         </div>
       </section>
-    </div>
+    </section>
   );
 };
 

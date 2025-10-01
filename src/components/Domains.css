@@ -1,17 +1,203 @@
+#Domains .domain-main {
+  position: relative;
+  z-index: 10;
+  box-shadow:
+    0 0 40px rgba(19, 135, 19, 0.4),
+    0 20px 60px rgba(0, 255, 68, 0.2),
+    0 0 60px 10px rgba(0, 255, 68, 0.15);
+  border: 1px solid rgba(19, 135, 19, 0.8);
+  padding: 40px;
+  margin-top: 50px;
+  border-radius: 20px;
+  background: rgba(22, 22, 22, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+#Domains .domain-main::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -3px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 68, 0.6), transparent);
+  animation: underlineGlow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes underlineGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+#Domains .domain-main {
+  position: relative;
+  z-index: 10;
+  box-shadow:
+    0 0 40px rgba(19, 135, 19, 0.4),
+    0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(19, 135, 19, 0.8);
+  padding: 40px;
+  margin-top: 50px;
+  border-radius: 20px;
+  background: rgba(22, 22, 22, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+#Domains .domain-main:hover {
+  box-shadow:
+    0 0 60px rgba(19, 135, 19, 0.6),
+    0 25px 80px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(19, 135, 19, 1);
+  transform: translateY(-5px);
+}
+/* Match About Us box effect for Domains main box */
+#Domains .domain-main {
+  position: relative;
+  z-index: 10;
+  box-shadow:
+    0 0 40px rgba(19, 135, 19, 0.4),
+    0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(19, 135, 19, 0.8);
+  padding: 40px;
+  margin-top: 50px;
+  border-radius: 20px;
+  background: rgba(22, 22, 22, 0.95);
+}
+.icons {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+.icons::after {
+  content: none !important;
+  background: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.icons::after,
+.txt::after {
+  content: none !important;
+  background: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+/* Enhanced title for all main sections to match About Us and Domains */
+#Events h2,
+#Blog h2,
+#Board h2,
+#Faculty h2,
+#Coordinator h2,
+#Memories h2,
+#ContactSection h2 {
+  text-align: center;
+  color: white;
+  font-size: 3.6vw;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+#Events h2:hover,
+#Blog h2:hover,
+#Board h2:hover,
+#Faculty h2:hover,
+#Coordinator h2:hover,
+#Memories h2:hover,
+#ContactSection h2:hover {
+  text-shadow: 0 0 40px rgba(19, 135, 19, 0.8);
+}
+
+#Events span,
+#Blog span,
+#Board span,
+#Faculty span,
+#Coordinator span,
+#Memories span,
+#ContactSection span {
+  background-image: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#Events span::after,
+#Blog span::after,
+#Board span::after,
+#Faculty span::after,
+#Coordinator span::after,
+#Memories span::after,
+#ContactSection span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+  opacity: 0.7;
+}
+/* Enhanced title for Domains section to match About Us */
+#Domains h2 {
+  text-align: center;
+  color: white;
+  font-size: 3.6vw;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+#Domains h2:hover {
+  text-shadow: 0 0 40px rgba(19, 135, 19, 0.8);
+}
+
+#Domains span {
+  background-image: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#Domains span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+  opacity: 0.7;
+}
 .nav-link:focus {
   outline: none;
   color: black !important;
 }
 
+
 .nav-link {
   font-style: "Ubuntu";
   font-weight: bold;
   color: white;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }
+
 
 .nav-link:hover {
   background-color: white;
   color: black;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .domaintext {
@@ -27,6 +213,8 @@
 
 .icons {
   font-size: 2em;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 .nav-item:hover {
@@ -38,7 +226,9 @@
 
 @media screen and (max-width: 1200px) {
   .txt {
-    display: none;
+    text-decoration: none !important;
+    background: none !important;
+    border: none !important;
   }
 
   .nav-link:focus {
@@ -49,6 +239,8 @@
 
   .icons {
     padding-right: 9px;
+    border-bottom: none !important;
+    box-shadow: none !important;
   }
 }
 

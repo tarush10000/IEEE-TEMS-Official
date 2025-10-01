@@ -206,165 +206,146 @@ const Board = () => {
   ];
 
   return (
-    <div>
-      <section id="Board">
-        <br />
-        <br />
-        <h2
-          style={{
-            textAlign: "center",
-            paddingBottom: "30px",
-            color: "white",
-            paddingTop: "0px",
-          }}
-        >
-          <span
+    <section id="Board">
+      <h2 style={{paddingTop:"0px"}}>
+        <span>
+          <strong>Board</strong>
+        </span>
+      </h2>
+      <div className="wrapper" id="content-desktop">
+        <nav className="tabs">
+          <div className="selector"></div>
+          <a
+            href="#Board"
+            id="Board-switch-2025"
+            className={
+              activeTab === "2025"
+                ? "active no-border-on-link"
+                : "no-border-on-link"
+            }
             style={{
-              backgroundImage:
-                "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-              backgroundSize: "100% 5px",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "0 100%",
+              backgroundColor: activeTab === "2025" ? "green" : "transparent",
+              color: activeTab === "2025" ? "white" : "inherit",
+              borderRadius: activeTab === "2025" ? "50px" : "0",
+              transition: "all 0.3s ease-in-out",
             }}
+            onClick={() => handleTabClick("2025")}
           >
-            <strong style={{ fontSize: "1.3em" }}>Board</strong>
-          </span>
-        </h2>
-        <div className="wrapper" id="content-desktop">
-          <nav className="tabs">
-            <div className="selector"></div>
-            <a
-              href="#Board"
-              id="Board-switch-2025"
-              className={
-                activeTab === "2025"
-                  ? "active no-border-on-link"
-                  : "no-border-on-link"
-              }
-              style={{
-                backgroundColor: activeTab === "2025" ? "green" : "transparent",
-                color: activeTab === "2025" ? "white" : "inherit",
-                borderRadius: activeTab === "2025" ? "50px" : "0",
-                transition: "all 0.3s ease-in-out",
-              }}
-              onClick={() => handleTabClick("2025")}
-            >
-              2025
-            </a>
-            <a
-              href="#Board"
-              id="Board-switch-2024"
-              className={
-                activeTab === "2024"
-                  ? "active no-border-on-link"
-                  : "no-border-on-link"
-              }
-              style={{
-                backgroundColor: activeTab === "2024" ? "green" : "transparent",
-                color: activeTab === "2024" ? "white" : "inherit",
-                borderRadius: activeTab === "2024" ? "50px" : "0",
-                transition: "all 0.3s ease-in-out",
-              }}
-              onClick={() => handleTabClick("2024")}
-            >
-              2024
-            </a>
-          </nav>
-        </div>
+            2025
+          </a>
+          <a
+            href="#Board"
+            id="Board-switch-2024"
+            className={
+              activeTab === "2024"
+                ? "active no-border-on-link"
+                : "no-border-on-link"
+            }
+            style={{
+              backgroundColor: activeTab === "2024" ? "green" : "transparent",
+              color: activeTab === "2024" ? "white" : "inherit",
+              borderRadius: activeTab === "2024" ? "50px" : "0",
+              transition: "all 0.3s ease-in-out",
+            }}
+            onClick={() => handleTabClick("2024")}
+          >
+            2024
+          </a>
+        </nav>
+      </div>
 
-        {/* 2025 Board */}
-        <div
-          className={`Board2025 board-content ${
-            activeYearBoard === "Board2025" ? "active-year-board highlight" : ""
-          }`}
-          id="Board2025"
-        >
-          <div className="tilted-cards-container">
-            {board2025.map((member, index) => (
-              <div key={index} className="member-card-container">
-                <div className="tilted-card-wrapper">
-                  <TiltedCard
-                    imageSrc={member.image}
-                    altText={`${member.name}, IEEE TEMS VIT`}
-                    containerHeight="250px"
-                    containerWidth="250px"
-                    imageHeight="250px"
-                    imageWidth="250px"
-                    rotateAmplitude={12}
-                    scaleOnHover={1.1}
-                    showMobileWarning={false}
-                    showTooltip={false}
-                    displayOverlayContent={false}
-                  />
-                </div>
-                <div className="member-info-below">
-                  <h3 className="member-name">{member.name}</h3>
-                  <p className="member-position">{member.position}</p>
-                  <div className="social-links">
-                    {member.instagram && (
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram"></i>
-                      </a>
-                    )}
-                    {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-linkedin"></i>
-                      </a>
-                    )}
-                  </div>
+      {/* 2025 Board */}
+      <div
+        className={`Board2025 board-content ${
+          activeYearBoard === "Board2025" ? "active-year-board highlight" : ""
+        }`}
+        id="Board2025"
+      >
+        <div className="tilted-cards-container">
+          {board2025.map((member, index) => (
+            <div key={index} className="member-card-container">
+              <div className="tilted-card-wrapper">
+                <TiltedCard
+                  imageSrc={member.image}
+                  altText={`${member.name}, IEEE TEMS VIT`}
+                  containerHeight="250px"
+                  containerWidth="250px"
+                  imageHeight="250px"
+                  imageWidth="250px"
+                  rotateAmplitude={12}
+                  scaleOnHover={1.1}
+                  showMobileWarning={false}
+                  showTooltip={false}
+                  displayOverlayContent={false}
+                />
+              </div>
+              <div className="member-info-below">
+                <h3 className="member-name">{member.name}</h3>
+                <p className="member-position">{member.position}</p>
+                <div className="social-links">
+                  {member.instagram && (
+                    <a href={member.instagram} target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-instagram"></i>
+                    </a>
+                  )}
+                  {member.linkedin && (
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-linkedin"></i>
+                    </a>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* 2024 Board */}
-        <div
-          className={`Board2024 board-content ${
-            activeYearBoard === "Board2024" ? "active-year-board" : ""
-          }`}
-          id="Board2024"
-        >
-          <div className="tilted-cards-container">
-            {board2024.map((member, index) => (
-              <div key={index} className="member-card-container">
-                <div className="tilted-card-wrapper">
-                  <TiltedCard
-                    imageSrc={member.image}
-                    altText={`${member.name}, IEEE TEMS VIT`}
-                    containerHeight="250px"
-                    containerWidth="250px"
-                    imageHeight="250px"
-                    imageWidth="250px"
-                    rotateAmplitude={12}
-                    scaleOnHover={1.1}
-                    showMobileWarning={false}
-                    showTooltip={false}
-                    displayOverlayContent={false}
-                  />
-                </div>
-                <div className="member-info-below">
-                  <h3 className="member-name">{member.name}</h3>
-                  <p className="member-position">{member.position}</p>
-                  <div className="social-links">
-                    {member.instagram && (
-                      <a href={member.instagram} target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-instagram"></i>
-                      </a>
-                    )}
-                    {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                        <i className="fa-brands fa-linkedin"></i>
-                      </a>
-                    )}
-                  </div>
+      {/* 2024 Board */}
+      <div
+        className={`Board2024 board-content ${
+          activeYearBoard === "Board2024" ? "active-year-board" : ""
+        }`}
+        id="Board2024"
+      >
+        <div className="tilted-cards-container">
+          {board2024.map((member, index) => (
+            <div key={index} className="member-card-container">
+              <div className="tilted-card-wrapper">
+                <TiltedCard
+                  imageSrc={member.image}
+                  altText={`${member.name}, IEEE TEMS VIT`}
+                  containerHeight="250px"
+                  containerWidth="250px"
+                  imageHeight="250px"
+                  imageWidth="250px"
+                  rotateAmplitude={12}
+                  scaleOnHover={1.1}
+                  showMobileWarning={false}
+                  showTooltip={false}
+                  displayOverlayContent={false}
+                />
+              </div>
+              <div className="member-info-below">
+                <h3 className="member-name">{member.name}</h3>
+                <p className="member-position">{member.position}</p>
+                <div className="social-links">
+                  {member.instagram && (
+                    <a href={member.instagram} target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-instagram"></i>
+                    </a>
+                  )}
+                  {member.linkedin && (
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                      <i className="fa-brands fa-linkedin"></i>
+                    </a>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

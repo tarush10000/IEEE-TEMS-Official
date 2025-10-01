@@ -21,16 +21,9 @@ const Faculty = () => {
   return (
     <section id="Faculty">
       <br /><br />
-      <h2 style={{ textAlign: 'center', color: 'white' }}>
-        <span
-          style={{
-            backgroundImage: 'linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)',
-            backgroundSize: '100% 5px',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: '0 100%',
-          }}
-        >
-          <strong style={{ fontSize: '1.3em' }}>Faculty Coordinators</strong>
+      <h2 style={{paddingTop:"0px"}}>
+        <span>
+          <strong>Faculty Coordinators</strong>
         </span>
       </h2>
       <div className="faculty-container">

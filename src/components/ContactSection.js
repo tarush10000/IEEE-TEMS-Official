@@ -3,8 +3,7 @@ import "./ContactSection.css";
 
 const ContactSection = () => {
   return (
-    <section
-      id="Contact"
+    <section id="ContactSection"
       style={{
         backgroundColor: "rgb(22, 22, 22)",
         paddingBottom: "100px",
@@ -14,23 +13,9 @@ const ContactSection = () => {
     >
       <br />
       <br />
-      <h2
-        style={{
-          textAlign: "center",
-          paddingBottom: "30px",
-          color: "white",
-        }}
-      >
-        <span
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-            backgroundSize: "100% 5px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "0 100%",
-          }}
-        >
-          <strong style={{ fontSize: "1.3em" }}>Contact Us</strong>
+      <h2 style={{paddingTop:"0px"}}>
+        <span>
+          <strong>Contact Us</strong>
         </span>
       </h2>
       <div

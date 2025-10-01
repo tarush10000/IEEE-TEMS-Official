@@ -57,20 +57,10 @@ const Blog = () => {
   }, []);
 
   return (
-    <section id="blog-section" >
-      <h2>
-        <span
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-            backgroundSize: "100% 5px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "0 100%",
-          }}
-        >
-          <strong id="Blogs-start" style={{ fontSize: "1.3em" }}>
-            Our Blogs
-          </strong>
+    <section id="Blog">
+      <h2 style={{paddingTop:"0px"}}>
+        <span>
+          <strong>Our Blogs</strong>
         </span>
       </h2>
       <section id="Blogs" className="blog-section blog-section-desktop">

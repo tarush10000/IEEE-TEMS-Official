@@ -52,7 +52,8 @@ const Event = () => {
 
     return (
         <div>
-            <h2
+            
+        <h2
                 style={{ textAlign: "center", paddingBottom: "40px", color: "white" }}
             >
                 <span

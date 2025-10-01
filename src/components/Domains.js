@@ -6,9 +6,9 @@ const Domains = () => {
 
   const domainContent = {
     webdev: {
-      title: "Web Development",
+      title: "Web and App Development",
       content:
-        "IEEE TEMS specializes in Web Development. We are dedicated to fostering creativity and honing technical skills within our community. Our initiatives include hosting coding competitions that challenge members to push their programming limits, organizing web design workshops that provide hands-on experience in crafting stunning digital interfaces, and conducting intensive coding bootcamps to empower our members with the ability to create responsive websites and dynamic web applications. Through these endeavors, we enable our members to explore and master the latest web technologies, ensuring that they stay at the forefront of the ever-evolving digital landscape.",
+        "IEEE TEMS specializes in Web and App Development. We are dedicated to fostering creativity and honing technical skills within our community. Our initiatives include hosting coding competitions that challenge members to push their programming limits, organizing web and mobile app design workshops that provide hands-on experience in crafting stunning digital interfaces, and conducting intensive coding bootcamps to empower our members with the ability to create responsive websites and dynamic applications. Through these endeavors, we enable our members to explore and master the latest web and app technologies, ensuring they stay at the forefront of the ever-evolving digital landscape.",
     },
     ml: {
       title: "Machine Learning",
@@ -40,29 +40,20 @@ const Domains = () => {
         paddingBottom: "50px",
       }}
     >
-      <h2
-        style={{
-          textAlign: "center",
-          paddingBottom: "30px",
-          paddingTop: "40px",
-          color: "white",
-        }}
-      >
-        <span
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-            backgroundSize: "100% 5px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "0 100%",
-          }}
-        >
-          <strong style={{ fontSize: "1.3em" }}>Domains</strong>
+      <h2 style={{paddingTop:"0px"}}>
+        <span style={{
+          backgroundImage: "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
+          backgroundSize: "100% 3px",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "0 100%",
+          fontSize: "1.1em",
+          fontWeight: "bold"
+        }}>
+          Domains
         </span>
       </h2>
       <div
-        className="container-fluid border border-success rounded-5 text-white"
-        style={{ boxShadow: "0 0 0 0 rgba(19, 135, 19, 0.8)" }}
+        className="container-fluid border border-success rounded-5 text-white domain-main"
       >
         <div className="row flex-nowrap">
           <div
@@ -105,8 +96,9 @@ const Domains = () => {
                             ? "fa-broom-ball"
                             : "fa-newspaper"
                         } text-dark icons`}
+                        style={{borderBottom: "none", boxShadow: "none"}}
                       ></span>
-                      <span className="fs-4 ps-3 txt">
+                      <span className="fs-4 ps-3 txt" style={{background: "none", fontWeight: "normal", fontSize: "1em", borderBottom: "none", boxShadow: "none", textDecoration: "none"}}>
                         {domainContent[key].title}&nbsp;
                       </span>
                     </button>
@@ -116,19 +108,23 @@ const Domains = () => {
             </div>
           </div>
           <div className="col" id="contentArea">
-            <h2
+            <h3
               style={{
                 textAlign: "center",
                 padding: "0px",
                 paddingTop: "40px",
                 marginBottom: "0px",
+                fontWeight: "bold",
+                fontSize: "1.7em",
+                background: "linear-gradient(90deg, #00ff44 0%, #00c853 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "#00ff44"
               }}
             >
-              <span className="text-success">
-                {domainContent[activeDomain].title.split(" ")[0][0]}
-              </span>
-              {domainContent[activeDomain].title.slice(1)}
-            </h2>
+              {domainContent[activeDomain].title}
+            </h3>
             <br />
             <p className="domaintext text-left lh-lg word-spacing-4" style={{textAlign:"justify"}}>
               {domainContent[activeDomain].content}
