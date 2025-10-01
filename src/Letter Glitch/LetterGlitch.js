@@ -1,11 +1,13 @@
 import { useRef, useEffect } from 'react';
 
 const LetterGlitch = ({
-  glitchColors = ['#2b4539', '#61dca3', '#61b3dc'],
-  glitchSpeed = 50,
+  glitchColors = ['#1a2e23', '#3d7a5c', '#2d5a6b'],
+  glitchSpeed = 80,
   centerVignette = false,
   outerVignette = true,
   smooth = true,
+  wordDisplayChance = 0.4,
+  wordDuration = 5000,
 }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
@@ -13,6 +15,7 @@ const LetterGlitch = ({
   const grid = useRef({ columns: 0, rows: 0 });
   const context = useRef(null);
   const lastGlitchTime = useRef(Date.now());
+  const wordState = useRef({ active: false, word: '', startTime: 0, position: { x: 0, y: 0 } });
 
   const fontSize = 16;
   const charWidth = 10;
@@ -71,7 +74,72 @@ const LetterGlitch = ({
       color: getRandomColor(),
       targetColor: getRandomColor(),
       colorProgress: 1,
+      isWordChar: false,
     }));
+  };
+
+  const tryDisplayWord = () => {
+    const now = Date.now();
+    
+    if (wordState.current.active && now - wordState.current.startTime > wordDuration) {
+      clearWord();
+      wordState.current.active = false;
+    }
+
+    if (!wordState.current.active && Math.random() < wordDisplayChance / 20) {
+      displayRandomWord();
+    }
+  };
+
+  const words = ['TARUSH', 'HARDIK B.', 'HARDIK S.', 'ARADHAY', 'JIYA', 'BHAVYA', 'KARTIK', 'MAITREYA', 'RHYTHM', 'YASHVI'];
+
+  const displayRandomWord = () => {
+    if (words.length === 0 || grid.current.columns === 0 || grid.current.rows === 0) return;
+
+    const word = words[Math.floor(Math.random() * words.length)];
+    const wordLength = word.length;
+    
+    const maxX = Math.max(0, grid.current.columns - wordLength);
+    const maxY = Math.max(0, grid.current.rows - 1);
+    
+    const x = Math.floor(Math.random() * (maxX + 1));
+    const y = Math.floor(Math.random() * (maxY + 1));
+
+    wordState.current = {
+      active: true,
+      word: word,
+      startTime: Date.now(),
+      position: { x, y }
+    };
+
+    for (let i = 0; i < word.length; i++) {
+      const index = y * grid.current.columns + (x + i);
+      if (index < letters.current.length) {
+        const originalColor = letters.current[index].color;
+        letters.current[index].char = word[i];
+        letters.current[index].color = '#61dca3';
+        letters.current[index].targetColor = '#61dca3';
+        letters.current[index].colorProgress = 1;
+        letters.current[index].isWordChar = true;
+        letters.current[index].originalColor = originalColor;
+      }
+    }
+  };
+
+  const clearWord = () => {
+    letters.current.forEach(letter => {
+      if (letter.isWordChar) {
+        letter.isWordChar = false;
+        letter.char = getRandomChar();
+        letter.targetColor = getRandomColor();
+        if (!smooth) {
+          letter.color = letter.targetColor;
+          letter.colorProgress = 1;
+        } else {
+          letter.colorProgress = 0;
+        }
+      }
+    });
   };
 
   const resizeCanvas = () => {
@@ -90,13 +158,13 @@ const LetterGlitch = ({
     canvas.style.height = `${rect.height}px`;
 
     if (context.current) {
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0); // Properly scale without stacking transforms
+      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     const { columns, rows } = calculateGrid(rect.width, rect.height);
     initializeLetters(columns, rows);
 
-    drawLetters(); // Ensure letters are drawn after resizing
+    drawLetters();
   };
 
   const drawLetters = () => {
@@ -116,13 +184,13 @@ const LetterGlitch = ({
   };
 
   const updateLetters = () => {
-    if (!letters.current || letters.current.length === 0) return; // Prevent accessing empty array
+    if (!letters.current || letters.current.length === 0) return;
 
-    const updateCount = Math.max(1, Math.floor(letters.current.length * 0.05));
+    const updateCount = Math.max(1, Math.floor(letters.current.length * 0.02));
 
     for (let i = 0; i < updateCount; i++) {
       const index = Math.floor(Math.random() * letters.current.length);
-      if (!letters.current[index]) continue; // Skip if index is invalid
+      if (!letters.current[index] || letters.current[index].isWordChar) continue;
 
       letters.current[index].char = getRandomChar();
       letters.current[index].targetColor = getRandomColor();
@@ -134,12 +202,14 @@ const LetterGlitch = ({
         letters.current[index].colorProgress = 0;
       }
     }
+
+    tryDisplayWord();
   };
 
   const handleSmoothTransitions = () => {
     let needsRedraw = false;
     letters.current.forEach((letter) => {
-      if (letter.colorProgress < 1) {
+      if (letter.colorProgress < 1 && !letter.isWordChar) {
         letter.colorProgress += 0.05;
         if (letter.colorProgress > 1) letter.colorProgress = 1;
 
@@ -185,9 +255,9 @@ const LetterGlitch = ({
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        cancelAnimationFrame(animationRef.current); // Stop animation loop during resize
+        cancelAnimationFrame(animationRef.current);
         resizeCanvas();
-        animate(); // Restart after resizing
+        animate();
       }, 100);
     };
 
@@ -197,8 +267,7 @@ const LetterGlitch = ({
       cancelAnimationFrame(animationRef.current);
       window.removeEventListener('resize', handleResize);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [glitchSpeed, smooth]);
+  }, [glitchSpeed, smooth, words, wordDisplayChance, wordDuration]);
 
   const containerStyle = {
     position: 'relative',
@@ -221,7 +290,7 @@ const LetterGlitch = ({
     width: '100%',
     height: '100%',
     pointerEvents: 'none',
-    background: 'radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%)',
+    background: 'radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 100%)',
   };
 
   const centerVignetteStyle = {

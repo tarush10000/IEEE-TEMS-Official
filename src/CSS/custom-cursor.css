@@ -1,0 +1,272 @@
+/* Custom Futuristic Cursor */
+
+/* Hide default cursor */
+* {
+    cursor: none !important;
+}
+
+/* Custom cursor container */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+/* Main cursor dot */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ffaa;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+    box-shadow:
+        0 0 10px #00ffaa,
+        0 0 20px #00ffaa,
+        0 0 30px #00ffaa;
+}
+
+/* Outer cursor ring */
+.cursor-ring {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(0, 255, 170, 0.6);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+    background: rgba(0, 255, 170, 0.05);
+    backdrop-filter: blur(2px);
+}
+
+/* Cursor trail particles */
+.cursor-trail {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00ffaa;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: fadeOut 0.8s ease-out forwards;
+    box-shadow: 0 0 6px #00ffaa;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+}
+
+/* Hover states for different elements */
+
+/* Clickable elements */
+.cursor-hover-clickable .cursor-dot {
+    width: 12px;
+    height: 12px;
+    background: #00c8ff;
+    box-shadow:
+        0 0 15px #00c8ff,
+        0 0 30px #00c8ff,
+        0 0 45px #00c8ff;
+}
+
+.cursor-hover-clickable .cursor-ring {
+    width: 50px;
+    height: 50px;
+    border-color: rgba(0, 200, 255, 0.8);
+    background: rgba(0, 200, 255, 0.1);
+}
+
+/* Text selection */
+.cursor-hover-text .cursor-dot {
+    width: 2px;
+    height: 16px;
+    border-radius: 2px;
+    background: #00ffaa;
+}
+
+.cursor-hover-text .cursor-ring {
+    width: 20px;
+    height: 25px;
+    border-radius: 3px;
+}
+
+/* Links and buttons */
+.cursor-hover-link .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: #ff6b6b;
+    box-shadow:
+        0 0 12px #ff6b6b,
+        0 0 24px #ff6b6b;
+}
+
+.cursor-hover-link .cursor-ring {
+    width: 40px;
+    height: 40px;
+    border-color: rgba(255, 107, 107, 0.7);
+    background: rgba(255, 107, 107, 0.1);
+    animation: pulseRing 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Loading state */
+.cursor-loading .cursor-ring {
+    border-top-color: #00ffaa;
+    border-right-color: #00c8ff;
+    border-bottom-color: #00ffaa;
+    border-left-color: #00c8ff;
+    animation: spinCursor 1s linear infinite;
+}
+
+@keyframes spinCursor {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Special cursor for IEEE TEMS elements */
+.cursor-tems .cursor-dot {
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(45deg, #00ffaa, #00c8ff);
+    box-shadow:
+        0 0 15px #00ffaa,
+        0 0 30px #00c8ff;
+}
+
+.cursor-tems .cursor-ring {
+    width: 35px;
+    height: 35px;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, rgba(0, 255, 170, 0.3), rgba(0, 200, 255, 0.3));
+    background-clip: padding-box;
+    animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Disabled state */
+.cursor-disabled .cursor-dot {
+    background: #666;
+    box-shadow: 0 0 8px #666;
+}
+
+.cursor-disabled .cursor-ring {
+    border-color: rgba(102, 102, 102, 0.5);
+    background: rgba(102, 102, 102, 0.1);
+}
+
+/* Mobile devices - show default cursor */
+@media (pointer: coarse) {
+    * {
+        cursor: auto !important;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+}
+
+/* Cursor for dragging */
+.cursor-grab .cursor-dot {
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    box-shadow:
+        0 0 12px #ffd700,
+        0 0 24px #ffd700;
+}
+
+.cursor-grab .cursor-ring {
+    width: 35px;
+    height: 35px;
+    border-color: rgba(255, 215, 0, 0.7);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+/* Cursor particles for special effects */
+.cursor-particles {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #00ffaa;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleFloat 2s ease-out forwards;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.2) translate(var(--random-x, 50px), var(--random-y, -50px));
+    }
+}
+
+/* Enhanced cursor for form inputs */
+.cursor-input .cursor-dot {
+    width: 2px;
+    height: 18px;
+    border-radius: 1px;
+    background: #00ffaa;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.cursor-input .cursor-ring {
+    width: 15px;
+    height: 25px;
+    border-radius: 3px;
+    border-color: rgba(0, 255, 170, 0.6);
+}
