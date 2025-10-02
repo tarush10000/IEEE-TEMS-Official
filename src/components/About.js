@@ -18,12 +18,12 @@ const About = () => {
             className="flex-element-1 flex-element"
             style={{ textAlign: "center" }}
           >
-            <img
-              src="about_us.jpg"
-              className="imgg"
-              style={{ borderRadius: "5px" }}
-              alt="IEEE TEMS"
-            />
+               <img
+                 src="about_us.gif"
+                 className="imgg"
+                 style={{ borderRadius: "3px", width: "95%" }}
+                 alt="IEEE TEMS"
+               />
           </div>
           <div className="flex-element-2 flex-element">
             <p className="about-content" style={{ marginTop: "0px" , textAlign:'justify'}}>

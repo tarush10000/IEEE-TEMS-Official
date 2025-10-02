@@ -1,17 +1,214 @@
-#Domains .domain-main {
+/* Consistent heading style for Domains section */
+.domain-heading-better {
+  text-align: center;
+  font-size: 4em;
+  color: #00ff44;
+  font-weight: 900;
+  margin-bottom: 0;
   position: relative;
-  z-index: 10;
-  box-shadow:
-    0 0 40px rgba(19, 135, 19, 0.4),
-    0 20px 60px rgba(0, 255, 68, 0.2),
-    0 0 60px 10px rgba(0, 255, 68, 0.15);
-  border: 1px solid rgba(19, 135, 19, 0.8);
-  padding: 40px;
-  margin-top: 50px;
-  border-radius: 20px;
-  background: rgba(22, 22, 22, 0.95);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  padding-top: 0 !important;
+}
+.domain-heading-better span {
+  background-image: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  position: relative;
+  display: inline-block;
+  padding: 0 12px;
+}
+.domain-heading-better span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+  opacity: 0.7;
+  border-radius: 3px;
+  z-index: 0;
+}
+/* Remove green underline from icons in slider */
+.domain-icon-better,
+.domain-icon-better::after,
+.fa-solid,
+.fa-solid::after {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  text-decoration: none !important;
+  background-image: none !important;
+  content: none !important;
+}
+/* --- UI Better: Domains Section --- */
+.domain-ui-better {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0em 1em 0 1em;
+  background: rgba(22,22,22,0.97);
+  box-shadow: 0 0 40px rgba(19,135,19,0.4), 0 20px 60px rgba(0,255,68,0.2);
+}
+
+.domain-content-card-better {
+  text-align: center;
+  margin-bottom: 2em;
+  max-width: 700px;
+}
+.domain-title-better {
+  font-size: 2em;
+  font-weight: bold;
+  color: #00ff44;
+  margin-bottom: 0.5em;
+}
+.domain-desc-better {
+  font-size: 1.1em;
+  color: #e0ffe0;
+  margin-bottom: 0.5em;
+}
+
+
+.domain-slider-better {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.7em 0.5em;
+  background: #23272a;
+  border-radius: 18px;
+  box-shadow: none;
+  scrollbar-width: thin;
+  scrollbar-color: #4fc3f7 #222;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.domain-slider-better::-webkit-scrollbar {
+  height: 6px;
+}
+.domain-slider-better::-webkit-scrollbar-thumb {
+  background: #4fc3f7;
+  border-radius: 3px;
+}
+.domain-icon-btn-better {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5em 0.7em;
+  border-radius: 50%;
+  scroll-snap-align: center;
+  transition: transform 0.22s, box-shadow 0.22s, background 0.22s;
+  box-shadow: 0 0 0 rgba(79,195,247,0);
+}
+.domain-icon-btn-better.active,
+.domain-icon-btn-better:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: none;
+  background: none;
+}
+.domain-icon-better {
+  font-size: 2.2em;
+  color: #888;
+  transition: color 0.18s;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+.domain-icon-better::after {
+  content: none !important;
+  border-bottom: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+.domain-icon-btn-better.active .domain-icon-better {
+  color: #00ff44;
+}
+
+@media screen and (max-width: 600px) {
+  .domain-heading-better {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #00ff44;
+    font-weight: 900;
+    position: relative;
+    padding-top: 0;
+  }
+  .domain-heading-better span {
+    background-image: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+    background-size: 100% 3px;
+    background-repeat: no-repeat;
+    background-position: 0 95%;
+    position: relative;
+    display: inline-block;
+    padding: 0 8px;
+    line-height: 1.2;
+  }
+  .domain-heading-better span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
+    opacity: 0.7;
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .domain-content-card-better {
+    max-width: 98vw;
+    margin-bottom: 1.2em;
+  }
+  .domain-icon-better {
+    font-size: 2.2em;
+    color: #888;
+    transition: color 0.18s;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    background: none !important;
+  }
+  .domain-icon-btn-better.active .domain-icon-better {
+    color: #00ff44;
+  }
+  .domain-icon-better::after {
+    content: none !important;
+    border-bottom: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .domain-icon-btn-better {
+    font-size: 1.1em;
+    padding: 0.1em 0.2em;
+    scroll-snap-align: center;
+  }
+  .domain-title-better {
+    font-size: 1.3em;
+    color: #00ff44;
+  }
+  .domain-desc-better {
+    font-size: 0.98em;
+  }
+  .domain-slider-better {
+    gap: 0.3em;
+    padding: 0.1em 0.1em;
+    max-width: 100vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    background: #23272a;
+    border-radius: 10px;
+    box-shadow: none;
+    min-height: 40px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  /* backdrop-filter: blur(10px);
+  transition: all 0.3s ease; */
 }
 
 #Domains .domain-main::after {
@@ -38,7 +235,9 @@
     0 20px 60px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(19, 135, 19, 0.8);
   padding: 40px;
-  margin-top: 50px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
   background: rgba(22, 22, 22, 0.95);
   backdrop-filter: blur(10px);
@@ -61,7 +260,7 @@
     0 20px 60px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(19, 135, 19, 0.8);
   padding: 40px;
-  margin-top: 50px;
+  margin-top: 20px;
   border-radius: 20px;
   background: rgba(22, 22, 22, 0.95);
 }
@@ -93,9 +292,10 @@
 #ContactSection h2 {
   text-align: center;
   color: white;
-  font-size: 3.6vw;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 2.7em;
+  font-weight: 900;
+  color: #00ff44;
+  margin-bottom: 0.7em;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
@@ -275,8 +475,9 @@
   }
 
   .icons {
-    font-size: 1.5em;
-    padding-right: 5px;
+    font-size: 1.35em;
+    color: #e0ffe0;
+    margin-bottom: 0.7em;
   }
 
 }

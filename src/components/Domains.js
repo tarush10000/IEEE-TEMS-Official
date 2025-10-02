@@ -33,103 +33,40 @@ const Domains = () => {
   };
 
   return (
-    <section
-      id="Domains"
-      style={{
-        backgroundColor: "rgb(22, 22, 22)",
-        paddingBottom: "50px",
-      }}
-    >
-      <h2 style={{paddingTop:"0px"}}>
-        <span style={{
-          backgroundImage: "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-          backgroundSize: "100% 3px",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "0 100%",
-          fontSize: "1.1em",
-          fontWeight: "bold"
-        }}>
-          Domains
-        </span>
+  <section id="Domains" style={{ backgroundColor: "rgb(22, 22, 22)" }}>
+      <h2 className="domain-heading-better">
+        <span>Domains</span>
       </h2>
-      <div
-        className="container-fluid border border-success rounded-5 text-white domain-main"
-      >
-        <div className="row flex-nowrap">
-          <div
-            className="col-auto col-md-auto col-xl-auto px-sm-6 px-0 rounded-5 py-5"
-            style={{ backgroundColor: "rgb(34, 119, 34)" }}
-          >
-            <div className="d-flex flex-column align-items-center align-items-sm-start pe-1 ps-1 pt-2 text-white min-vh-50">
-              <ul
-                className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                id="menu"
-              >
-                {Object.keys(domainContent).map((key) => (
-                  <li
-                    className={`nav-item py-1 ${
-                      activeDomain === key ? "active" : ""
-                    }`}
-                    key={key}
-                  >
-                    <button
-                      className="nav-link align-middle px-0"
-                      onClick={() => setActiveDomain(key)}
-                      style={{
-                        background: "none",
-                        border: "none",
-                        color: "inherit",
-                        textAlign: "left",
-                      }}
-                    >
-                      <span
-                        className={`ps-2 fa-solid ${
-                          key === "webdev"
-                            ? "fa-laptop-code"
-                            : key === "ml"
-                            ? "fa-robot"
-                            : key === "iot"
-                            ? "fa-globe"
-                            : key === "devops"
-                            ? "fa-infinity"
-                            : key === "design"
-                            ? "fa-broom-ball"
-                            : "fa-newspaper"
-                        } text-dark icons`}
-                        style={{borderBottom: "none", boxShadow: "none"}}
-                      ></span>
-                      <span className="fs-4 ps-3 txt" style={{background: "none", fontWeight: "normal", fontSize: "1em", borderBottom: "none", boxShadow: "none", textDecoration: "none"}}>
-                        {domainContent[key].title}&nbsp;
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="col" id="contentArea">
-            <h3
-              style={{
-                textAlign: "center",
-                padding: "0px",
-                paddingTop: "40px",
-                marginBottom: "0px",
-                fontWeight: "bold",
-                fontSize: "1.7em",
-                background: "linear-gradient(90deg, #00ff44 0%, #00c853 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "#00ff44"
-              }}
+      <div className="container-fluid border border-success rounded-5 text-white domain-main domain-ui-better">
+        <div className="domain-content-card-better">
+          <h3 className="domain-title-better">{domainContent[activeDomain].title}</h3>
+          <p className="domain-desc-better">{domainContent[activeDomain].content}</p>
+        </div>
+        <div className="domain-slider-better">
+          {Object.keys(domainContent).map((key) => (
+            <button
+              key={key}
+              className={`domain-icon-btn-better${activeDomain === key ? " active" : ""}`}
+              onClick={() => setActiveDomain(key)}
+              aria-label={domainContent[key].title}
             >
-              {domainContent[activeDomain].title}
-            </h3>
-            <br />
-            <p className="domaintext text-left lh-lg word-spacing-4" style={{textAlign:"justify"}}>
-              {domainContent[activeDomain].content}
-            </p>
-          </div>
+              <span
+                className={`fa-solid ${
+                  key === "webdev"
+                    ? "fa-laptop-code"
+                    : key === "ml"
+                    ? "fa-robot"
+                    : key === "iot"
+                    ? "fa-globe"
+                    : key === "devops"
+                    ? "fa-infinity"
+                    : key === "design"
+                    ? "fa-broom-ball"
+                    : "fa-newspaper"
+                } domain-icon-better`}
+              ></span>
+            </button>
+          ))}
         </div>
       </div>
     </section>
