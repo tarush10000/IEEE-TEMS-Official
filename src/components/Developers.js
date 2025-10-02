@@ -30,7 +30,7 @@ const Developers = () => {
       handle: "@2005lakshya",
       borderColor: "#a23cf6ff",
       gradient: "linear-gradient(180deg, #7928d0ff, #000)",
-      url: "https://linkedin.com/in/mikechen"
+      url: "https://github.com/2005lakshya"
     },
     {
       image: "/Developers/bhavya.png",
@@ -40,36 +40,33 @@ const Developers = () => {
       borderColor: "#4dfd3dff",
       gradient: "linear-gradient(180deg, #5ce939ff, #000)",
       url: "https://github.com/bhavya-khatri-59"
+    },
+    {
+      image: "/Developers/tarush.png",
+      title: "Tarush",
+      subtitle: "Backend Engineer",
+      handle: "@tarush10000",
+      borderColor: "#fd3d3dff",
+      gradient: "linear-gradient(180deg, #ff5050ff, #000)",
+      url: "https://github.com/tarush10000"
+    },
+    {
+      image: "/Developers/shrishti.png",
+      title: "Shrishti",
+      subtitle: "Backend Engineer",
+      handle: "@shrishtib07",
+      borderColor: "#3dfdfdff",
+      gradient: "linear-gradient(180deg, #7de7ffff, #000)",
+      url: "https://github.com/shrishtib07"
     }
   ];
 
   return (
     <div style={{ height: '800px', position: 'relative' }}>
-        <h2
-        style={{
-          textAlign: "center",
-          paddingTop: "25px",
-          color: "white",
-          marginBottom: "0px",
-        }}
-      >
-        <span
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-            backgroundSize: "100% 5px",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "0 100%",
-          }}
-        >
-          <strong id="memories" style={{ fontSize: "1.3em" }}>
-            Developers
-          </strong>
-        </span>
-      </h2>
+        
       <ChromaGrid 
         items={items}
-        radius={150}
+        radius={200}
         damping={0.45}
         fadeOut={0.6}
         ease="power3.out"
