@@ -51,7 +51,15 @@
 }
 
 /* Enhanced title */
-#About h2 {
+#Events h2,
+#Blog h2,
+#Board h2,
+#Memories h2,
+#ContactSection h2,
+#Faculty h2,
+#Coordinator h2,
+#About h2,
+#Domains h2 {
   text-align: center;
   color: white;
   font-size: 3.6vw;
@@ -60,13 +68,28 @@
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
-
-#About h2:hover {
+#Events h2:hover,
+#Blog h2:hover,
+#Board h2:hover,
+#Memories h2:hover,
+#ContactSection h2:hover,
+#Faculty h2:hover,
+#Coordinator h2:hover,
+#About h2:hover,
+#Domains h2:hover {
   text-shadow: 0 0 40px rgba(19, 135, 19, 0.8);
 }
 
 /* Enhanced underline */
-#About span {
+#Events span,
+#Blog span,
+#Board span,
+#Memories span,
+#ContactSection span,
+#Faculty span,
+#Coordinator span,
+#About span,
+#Domains span {
   background-image: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
   background-size: 100% 6px;
   background-repeat: no-repeat;
@@ -74,8 +97,15 @@
   position: relative;
   transition: all 0.3s ease;
 }
-
-#About span::after {
+#Events span::after,
+#Blog span::after,
+#Board span::after,
+#Memories span::after,
+#ContactSection span::after,
+#Faculty span::after ,
+#Coordinator span::after ,
+#About span::after,
+#Domains span::after {
   content: '';
   position: absolute;
   bottom: -3px;

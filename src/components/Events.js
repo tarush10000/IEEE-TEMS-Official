@@ -51,8 +51,8 @@ const Event = () => {
     }, []);
 
     return (
-        <div>
-            
+        <section id="Events">
+        <div>    
         <h2
                 style={{ textAlign: "center", paddingBottom: "40px", color: "white" }}
             >
@@ -65,9 +65,9 @@ const Event = () => {
                         backgroundPosition: "0 100%",
                     }}
                 >
-                    <strong style={{ fontSize: "1.3em" }} id="Event">
-                        Events
-                    </strong>
+                    <span>
+                        <strong>Events</strong>
+                    </span>
                 </span>
             </h2>
 
@@ -857,6 +857,7 @@ const Event = () => {
                 </div>
             </section>
         </div>
+        </section>
     );
 };
 

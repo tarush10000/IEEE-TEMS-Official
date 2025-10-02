@@ -33,10 +33,12 @@ const Domains = () => {
   };
 
   return (
-  <section id="Domains" style={{ backgroundColor: "rgb(22, 22, 22)" }}>
-      <h2 className="domain-heading-better">
-        <span>Domains</span>
-      </h2>
+  <section id="Domains">
+        <h2>
+          <span>
+            <strong>Domains</strong>
+          </span>
+        </h2>
       <div className="container-fluid border border-success rounded-5 text-white domain-main domain-ui-better">
         <div className="domain-content-card-better">
           <h3 className="domain-title-better">{domainContent[activeDomain].title}</h3>
