@@ -6,7 +6,7 @@ export const ChromaGrid = ({
   items,
   className = '',
   radius = 300,
-  columns = 2,
+  columns = 3,
   rows = 2,
   damping = 0.45,
   fadeOut = 0.6,
