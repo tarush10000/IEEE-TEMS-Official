@@ -8,7 +8,7 @@ const Developers = () => {
     {
       image: "/Developers/harshit.png",
       title: "Harshit",
-      subtitle: "Frontend Developer",
+      subtitle: "",
       handle: "@harshiii25",
       borderColor: "#3B82F6",
       gradient: "linear-gradient(145deg, #4d91ffff, #000)",
@@ -17,7 +17,7 @@ const Developers = () => {
     {
       image: "/Developers/savar.png",
       title: "Savar",
-      subtitle: "Frontend Developer",
+      subtitle: "",
       handle: "@savargit09",
       borderColor: "#f9f636ff",
       gradient: "linear-gradient(180deg, #eefa41ff, #000)",
@@ -26,7 +26,7 @@ const Developers = () => {
     {
       image: "/Developers/lakshya.png",
       title: "Lakshya",
-      subtitle: "App Developer",
+      subtitle: "",
       handle: "@2005lakshya",
       borderColor: "#a23cf6ff",
       gradient: "linear-gradient(180deg, #7928d0ff, #000)",
@@ -35,7 +35,7 @@ const Developers = () => {
     {
       image: "/Developers/bhavya.png",
       title: "Bhavya",
-      subtitle: "Backend Engineer",
+      subtitle: "",
       handle: "@bhavya-khatri-59",
       borderColor: "#4dfd3dff",
       gradient: "linear-gradient(180deg, #5ce939ff, #000)",
@@ -44,7 +44,7 @@ const Developers = () => {
     {
       image: "/Developers/tarush.png",
       title: "Tarush",
-      subtitle: "Backend Engineer",
+      subtitle: "",
       handle: "@tarush10000",
       borderColor: "#fd3d3dff",
       gradient: "linear-gradient(180deg, #ff5050ff, #000)",
@@ -53,7 +53,7 @@ const Developers = () => {
     {
       image: "/Developers/shrishti.png",
       title: "Shrishti",
-      subtitle: "Backend Engineer",
+      subtitle: "",
       handle: "@shrishtib07",
       borderColor: "#3dfdfdff",
       gradient: "linear-gradient(180deg, #7de7ffff, #000)",
