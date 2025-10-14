@@ -180,7 +180,7 @@ const HomePage = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              zIndex: "10",
+              zIndex: "1000",
               transition: "right 0.3s ease-in-out",
               paddingTop: "50px",
               overflowY: "auto",

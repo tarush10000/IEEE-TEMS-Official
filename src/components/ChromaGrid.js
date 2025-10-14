@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './ChromaGrid.css';
 
@@ -17,7 +17,9 @@ export const ChromaGrid = ({
   const setX = useRef(null);
   const setY = useRef(null);
   const pos = useRef({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
+  // Demo data if no items are provided
   const demo = [
     {
       image: 'https://i.pravatar.cc/300?img=8',
@@ -77,6 +79,13 @@ export const ChromaGrid = ({
   const data = items?.length ? items : demo;
 
   useEffect(() => {
+    // Detect if the device is touch-capable to disable pointer events
+    const touchCheck = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(touchCheck);
+
+    if (touchCheck) return;
+
+    // GSAP setup for mouse tracking on non-touch devices
     const el = rootRef.current;
     if (!el) return;
     setX.current = gsap.quickSetter(el, '--x', 'px');
@@ -139,14 +148,15 @@ export const ChromaGrid = ({
         '--cols': columns,
         '--rows': rows
       }}
-      onPointerMove={handleMove}
-      onPointerLeave={handleLeave}
+      // Conditionally apply pointer events only on non-touch devices
+      onPointerMove={!isTouchDevice ? handleMove : undefined}
+      onPointerLeave={!isTouchDevice ? handleLeave : undefined}
     >
       {data.map((c, i) => (
         <article
           key={i}
           className="chroma-card"
-          onMouseMove={handleCardMove}
+          onMouseMove={!isTouchDevice ? handleCardMove : undefined}
           onClick={() => handleCardClick(c.url)}
           style={{
             '--card-border': c.borderColor || 'transparent',
