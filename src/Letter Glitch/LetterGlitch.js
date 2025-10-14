@@ -91,7 +91,7 @@ const LetterGlitch = ({
     }
   };
 
-  const words = ['TARUSH', 'HARDIK B.', 'HARDIK S.', 'ARADHAY', 'JIYA', 'BHAVYA', 'KARTIK', 'MAITREYA', 'RHYTHM', 'YASHVI'];
+  const words = ['@_maitreyaaaa_','TARUSH', 'HARDIK B.', 'HARDIK S.', 'ARADHAY', 'JIYA', 'BHAVYA', 'KARTIK', 'MAITREYA', 'RHYTHM', 'YASHVI'];
 
   const displayRandomWord = () => {
     if (words.length === 0 || grid.current.columns === 0 || grid.current.rows === 0) return;
