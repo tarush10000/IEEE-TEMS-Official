@@ -1,864 +1,155 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Event.css";
+import React, { useState } from "react";
+// Assuming Event.css contains the necessary styles for this component.
+        import "./Event.css";
 
 const Event = () => {
-    const [activeYear, setActiveYear] = useState("2023");
-    const [activeContent, setActiveContent] = useState("content1");
-    const eventRef = useRef(null);
+    // Define variables for the years
+    const currentYear = 2025;
+    const previousYear = 2024;
 
+    // State management for active year and content
+    const [activeYear, setActiveYear] = useState(currentYear.toString());
+    const [activeContent, setActiveContent] = useState("content1");
+
+    // Handler to change the active year
     const handleYearChange = (year) => {
         setActiveYear(year);
+        // Reset to the first content item when the year changes
         setActiveContent("content1");
     };
 
+    // Handler to change the active content within a year
     const handleContentChange = (contentId) => {
         setActiveContent(contentId);
     };
 
-    useEffect(() => {
-        if (eventRef.current) {
-            const links = eventRef.current.querySelectorAll(".Event-tabs a");
-            const selector = eventRef.current.querySelector(".Event-selector");
+    // Data structure for events to avoid repetition in JSX
+    const eventsData = {
+        [currentYear]: [
+            { id: "content1", name: "Sustainable Development Goals", img: "events/2025/sdg.png", description: "An enlightening session that delved into the United Nations' 17 Sustainable Development Goals, led by the esteemed Mr. Yogesh Shinde. This event served as a catalyst for change, encouraging participants to think critically about global challenges and innovate for a sustainable future. It was a powerful call to action, inspiring attendees to harness their skills and ideas to contribute towards a better, more equitable world for all." },
+            { id: "content2", name: "Squid Survivors", img: "events/2025/squid.png", description: "During Riviera 2025, we brought the global phenomenon to campus with \"Squid Survivors.\" This thrilling event challenged participants with a series of high-stakes games inspired by the popular series. Contestants tested their wit, agility, and nerve in a friendly but competitive atmosphere, all vying for the ultimate prize. It was an unforgettable experience filled with suspense, excitement, and teamwork, making it a standout attraction of the fest." },
+            { id: "content3", name: "Bouncing Castle", img: "events/2025/bouncin.png", description: "We added a dose of pure fun to Riviera 2025 with our very own Bouncing Castle. This pay-to-play attraction offered a chance for everyone to let loose, jump around, and relive some carefree childhood moments amidst the hustle and bustle of the fest. It was a simple, joyous escape that brought smiles and laughter to many, proving to be a popular spot for students to relax and have a great time with friends." },
+            { id: "content4", name: "HackXpertise 2.0", img: "events/2025/hackx2.png", description: "Building on the success of its predecessors, HackXpertise 2.0 returned as our flagship innovation marathon. This year, we enhanced the experience with preliminary sessions on Git for effective version control and a tutorial on leveraging the latest AI tools. Following the workshops, participants dove into a hackathon and designathon, working tirelessly in teams to develop groundbreaking solutions. The event was a testament to the creativity and technical skill within our community." },
+            { id: "content5", name: "Git Set Go", img: "/events/2025/gitsetgo.png", description: "This comprehensive online session was designed to empower developers by mastering essential version control skills. In \"Git Set Go,\" participants journeyed from the fundamentals to more advanced techniques of Git and GitHub. The workshop provided hands-on practice, enabling attendees to confidently manage code, collaborate on projects, and streamline their development workflow, setting them up for success in any software development environment." },
+            { id: "content6", name: "HP Dreams Unlocked", img: "events/2025/hp.png", description: "In an exciting collaboration with HP, we hosted \"HP Dreams Unlocked,\" a dynamic on-campus event. The day was packed with an inspiring tech workshop, fun creative challenges, and a high-speed Live Pitch Challenge where innovators presented their ideas in just 60 seconds. Participants engaged with cutting-edge technology and had the chance to win exclusive HP giveaways, with one lucky winner even taking home a brand-new AI-powered HP Omnibook laptop." },
+            { id: "content7", name: "Code Rush 3.0", img: "events/2025/coderush3.png", description: "The ultimate test of speed, skill, and teamwork, Code Rush 3.0, made its triumphant return. This offline coding competition saw teams battle it out in our signature relay-race format. Each member tackled a segment of a complex problem before passing it to their teammate, creating an electrifying and collaborative atmosphere. The event pushed participants to code efficiently under pressure, celebrating both individual talent and the power of a well-coordinated team." },
+            { id: "content8", name: "CASA", img: "events/2025/casa.png", description: "In our ongoing effort to promote student well-being, we hosted CASA, a crucial drug awareness event. This session provided a safe and informative space to discuss the serious implications of substance abuse and its impact on mental and physical health. The event aimed to educate, empower, and equip students with the knowledge to make responsible choices and to support peers who may be struggling, reinforcing our commitment to a healthy and supportive campus community." }
+        ],
+        [previousYear]: [
+            { id: "content1", name: "Resume Revamp", img: "events/2024/resume.webp", description: "We hosted an exclusive online session dedicated to mastering the art of resume building. This workshop guided participants through the essential dos and don'ts of creating a professional resume, from structuring content effectively to using powerful action verbs. Attendees learned valuable tips and tricks to make their profiles stand out to recruiters, ensuring their skills and experiences were highlighted for maximum impact in their job search." },
+            { id: "content2", name: "Unboxing DevOps", img: "events/2024/devops.webp", description: "This insightful online session demystified the world of DevOps, bridging the gap between development and operations. Participants explored the core principles of the DevOps culture, including continuous integration, continuous delivery (CI/CD), and automation. The workshop provided a clear overview of how these modern practices streamline workflows, enhance collaboration, and accelerate the software development lifecycle in the tech industry." },
+            { id: "content3", name: "ML Maven Marathon", img: "events/2024/ml.webp", description: "The ML Maven Marathon was a fast-paced and engaging quiz designed to challenge machine learning enthusiasts. Conducted through a Google Form, this event tested participants' knowledge on a wide range of ML concepts, algorithms, and theories. It was a fun opportunity for students to benchmark their expertise, compete with their peers, and prove their mettle in the rapidly evolving field of data science." },
+            { id: "content4", name: "Code Clash", img: "events/2024/code.webp", description: "Coders went head-to-head in Code Clash, our premier competitive programming contest hosted on the popular Unstop platform. This event challenged participants with a set of complex algorithmic problems designed to push their problem-solving and coding skills to the limit. It was a thrilling battle of logic and efficiency, where the sharpest minds competed for bragging rights and demonstrated their programming prowess." },
+            { id: "content5", name: "HackXpertise", img: "events/2024/hackXpertise.webp", description: "HackXpertise was an immersive two-day event that combined learning with hands-on creation. The first day kicked off with an intensive workshop, equipping participants with new skills and technologies. This was immediately followed by a 24-hour hackathon and designathon, where teams collaborated to build innovative solutions and prototypes from scratch. This high-energy event was a platform for creativity, teamwork, and turning ambitious ideas into tangible realities." },
+            { id: "content6", name: "CodeRush 2.0", img: "events/2024/coder.webp", description: "Returning with even more excitement, CodeRush 2.0 was an adrenaline-fueled offline coding competition with a unique twist. Teams engaged in an intense relay race, where each member had to solve a part of a problem before passing the baton to the next. This format tested not only individual coding speed and accuracy but also team strategy and collaboration under pressure, creating a high-stakes and electrifying atmosphere for all participants." },
+            { id: "content7", name: "Alumni Talks", img: "events/2024/alumni.webp", description: "This special event provided a valuable platform for current members to connect with our esteemed club seniors and alumni. In a relaxed and interactive session, our experienced seniors shared their career journeys, offered practical industry insights, and answered questions on everything from navigating academics to landing a dream job. It was a fantastic networking opportunity that strengthened our community and helped guide our members on their professional paths." },
+            { id: "content8", name: "Outreach", img: "events/2024/outreach.webp", description: "As part of our commitment to giving back to the community, we organized an outreach program at a nearby school. Our team conducted an engaging and interactive session on Scratch, a visual programming language perfect for beginners. The goal was to introduce young students to the foundational concepts of coding in a fun and accessible way, sparking their curiosity and inspiring the next generation of innovators and technologists." }
+        ]
+    };
 
-            links.forEach((link) => {
-                link.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const activeLink = eventRef.current.querySelector(".Event-tabs .active");
-                    if (activeLink) activeLink.classList.remove("active");
-                    this.classList.add("active");
+    const renderYearEvents = (year) => {
+        const yearData = eventsData[year] || [];
+        return (
+            <div
+                className={`active-year evnentContent ${activeYear === year.toString() ? "" : "hidden"}`}
+                id={`${year}events`}
+            >
+                <div className="container1">
+                    <div className="event-icon">
+                        {yearData.map((event, index) => (
+                            <div
+                                key={event.id}
+                                className={`imgBx ${activeContent === event.id ? "active" : ""}`}
+                                style={{ "--i": index + 1 }}
+                                data-id={event.id}
+                                onClick={() => handleContentChange(event.id)}
+                            >
+                                <img src={event.img} alt={`${event.name}, IEEE TEMS`} />
+                            </div>
+                        ))}
+                    </div>
 
-                    const targetId = this.getAttribute("id");
-                    eventRef.current.querySelectorAll(".Event-active-year").forEach((section) => {
-                        section.classList.add("hidden");
-                        if (section.id === `${targetId}events`) {
-                            section.classList.remove("hidden");
-                        }
-                    });
+                    <div className="content1">
+                        {yearData.map(event => (
+                             <div
+                                key={event.id}
+                                className={`contentBx ${activeContent === event.id ? "active" : ""}`}
+                                id={event.id}
+                            >
+                                <div className="card">
+                                    <div className="imgBx2">
+                                        <img src={event.img} alt={`${event.name}, IEEE TEMS`} />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-                    // Move selector
-                    const linkRect = this.getBoundingClientRect();
-                    selector.style.width = `${linkRect.width}px`;
-                    selector.style.left = `${linkRect.left}px`;
-                });
-            });
-
-            return () => {
-                links.forEach((link) => {
-                    link.removeEventListener("click", () => { });
-                });
-            };
-        }
-    }, []);
+                <div className="event-description" style={{ textAlign: "justify" }}>
+                    <div className="event-description-content">
+                        {yearData.map(event => (
+                            <div
+                                key={event.id}
+                                className={`event-description-content-text descriptionBx ${activeContent === event.id ? "event-active" : ""}`}
+                                id={`${event.id}_description`}
+                            >
+                                <h2 style={{ padding: "0px" }}>{event.name}</h2>
+                                <p>{event.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    };
 
     return (
         <section id="Events">
-        <div>    
-        <h2
-                style={{ textAlign: "center", paddingBottom: "40px", color: "white" }}
-            >
-                <span
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-                        backgroundSize: "100% 5px",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "0 100%",
-                    }}
-                >
-                    <span>
+            <div>
+                <h2 style={{ textAlign: "center", paddingBottom: "40px", color: "white" }}>
+                    <span
+                        style={{
+                            backgroundImage: "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
+                            backgroundSize: "100% 5px",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "0 100%",
+                        }}
+                    >
                         <strong>Events</strong>
                     </span>
-                </span>
-            </h2>
+                </h2>
 
-            <div className="wrapper" id="content-desktop">
-                <nav className="tabs">
-                    <div className="selector"></div>
-                    <a
-                        href="#Event"
-                        id="2023"
-                        className={
-                            activeYear === "2023"
-                                ? "active no-border-on-link"
-                                : "no-border-on-link"
-                        }
-                        onClick={() => handleYearChange("2023")}
-                    >
-                        2024
-                    </a>
-                    <a
-                        href="#Event"
-                        id="2022"
-                        className={
-                            activeYear === "2022"
-                                ? "active no-border-on-link"
-                                : "no-border-on-link"
-                        }
-                        onClick={() => handleYearChange("2022")}
-                    >
-                        2023
-                    </a>
-                </nav>
+                <div className="wrapper" id="content-desktop">
+                    <nav className="tabs">
+                        <div className="selector"></div>
+                        <a
+                            href="#Event"
+                            id={currentYear.toString()}
+                            className={activeYear === currentYear.toString() ? "active no-border-on-link" : "no-border-on-link"}
+                            onClick={() => handleYearChange(currentYear.toString())}
+                        >
+                            {currentYear}
+                        </a>
+                        <a
+                            href="#Event"
+                            id={previousYear.toString()}
+                            className={activeYear === previousYear.toString() ? "active no-border-on-link" : "no-border-on-link"}
+                            onClick={() => handleYearChange(previousYear.toString())}
+                        >
+                            {previousYear}
+                        </a>
+                    </nav>
+                </div>
+
+                <section className="yo" style={{ marginTop: "50px" }}>
+                    {renderYearEvents(currentYear)}
+                    {renderYearEvents(previousYear)}
+                </section>
             </div>
-
-            <section className="yo" style={{ marginTop: "50px" }}>
-                <div
-                    className={`active-year evnentContent ${activeYear === "2023" ? "" : "hidden"}`}
-                    id="2023events"
-                >
-                    <div className="container1">
-                        <div className="event-icon">
-                            <div
-                                className={`imgBx ${activeContent === "content1" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 1 }}
-                                data-id="content1"
-                                onClick={() => handleContentChange("content1")}
-                            >
-                                <img
-                                    src="events/2024/resume.webp"
-                                    alt="Resume Revamp, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content2" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 2 }}
-                                data-id="content2"
-                                onClick={() => handleContentChange("content2")}
-                            >
-                                <img src="events/2024/devops.webp" alt="Unboxing DevOps, IEEE TEMS" />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content3" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 3 }}
-                                data-id="content3"
-                                onClick={() => handleContentChange("content3")}
-                            >
-                                <img src="events/2024/ml.webp" alt="ML Maven, IEEE TEMS" />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content4" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 4 }}
-                                data-id="content4"
-                                onClick={() => handleContentChange("content4")}
-                            >
-                                <img
-                                    src="events/2024/code.webp"
-                                    alt="Code Clash, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content5" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 5 }}
-                                data-id="content5"
-                                onClick={() => handleContentChange("content5")}
-                            >
-                                <img
-                                    src="/events/2024/hackXpertise.webp"
-                                    alt="HackXpertise, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content6" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 6 }}
-                                data-id="content6"
-                                onClick={() => handleContentChange("content6")}
-                            >
-                                <img
-                                    src="events/2024/coder.webp"
-                                    alt="CodeRush 2.0, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content7" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 7 }}
-                                data-id="content7"
-                                onClick={() => handleContentChange("content7")}
-                            >
-                                <img
-                                    src="events/2024/alumni.webp"
-                                    alt="Alumni Talks, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content8" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 8 }}
-                                data-id="content8"
-                                onClick={() => handleContentChange("content8")}
-                            >
-                                <img
-                                    src="events/2024/outreach.webp"
-                                    alt="Outreach, IEEE TEMS"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="content1">
-                            <div
-                                className={`contentBx ${activeContent === "content1" ? "active" : ""
-                                    }`}
-                                id="content1"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2024/resume.webp"
-                                            alt="Resume Revamp, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content2" ? "active" : ""
-                                    }`}
-                                id="content2"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img src="events/2024/devops.webp" alt="Unboxing DevOps, IEEE TEMS" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content3" ? "active" : ""
-                                    }`}
-                                id="content3"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2024/ml.webp"
-                                            alt="ML Maven, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content4" ? "active" : ""
-                                    }`}
-                                id="content4"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2024/code.webp"
-                                            alt="Code Clash, IEEE TEMS VIT"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content5" ? "active" : ""
-                                    }`}
-                                id="content5"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2024/hackxpertise.webp"
-                                            alt="HackXpertise, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content6" ? "active" : ""
-                                    }`}
-                                id="content6"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img src="events/2024/coder.webp" alt="CodeRush 2.0, IEEE TEMS" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content7" ? "active" : ""
-                                    }`}
-                                id="content7"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2024/alumni.webp"
-                                            alt="Alumni Talks, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className={`contentBx ${activeContent === "content8" ? "active" : ""
-                                    }`}
-                                id="content8"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2024/outreach.webp"
-                                            alt="Outreach, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="event-description" style={{textAlign:"justify"}}>
-                        <div className="event-description-content">
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content1" ? "event-active" : ""
-                                    }`}
-                                id="content1_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Resume Revamp</h2>
-                                <p>
-                                    The adrenaline-fueled event, "Code Rush: Ignite the Coder in
-                                    You," was a thrilling opportunity that took participants'
-                                    coding skills to the next level. In this intense coding relay
-                                    race, attendees experienced the excitement of solving
-                                    real-world problems under pressure, racing against time to
-                                    showcase their coding prowess. The event was not just a
-                                    challenge; it was a chance for participants to collaborate,
-                                    compete, and conquer the coding world. Those who participated
-                                    not only proved their mettle but also earned well-deserved
-                                    bragging rights in this past high-stakes coding competition.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content2" ? "event-active" : ""
-                                    }`}
-                                id="content2_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Unboxing DevOps: Development and Operations</h2>
-                                <p>
-                                    Dived into the world of React JS, the JavaScript library has
-                                    showcased its transformative impact on the way we construct
-                                    web applications. Participants explored the magic behind
-                                    creating responsive, dynamic, and user-friendly interfaces
-                                    with unparalleled ease. The event provided insights and
-                                    hands-on experiences, unveiling the capabilities of React JS
-                                    in shaping the future of web development.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content3" ? "event-active" : ""
-                                    }`}
-                                id="content3_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>ML Maven Marathon</h2>
-                                <p>
-                                    Bezzie Bench was all about discovering how well you and your
-                                    friend worked together, offering a unique opportunity to
-                                    explore the dynamics of your friendship. During the event,
-                                    attendees had the chance to check out a variety of amazing
-                                    homemade crafts, including tiaras, bracelets, and dream
-                                    catchers, all available at affordable prices. These crafts
-                                    added a special touch to the occasion, providing a delightful
-                                    way to light up memories and create lasting moments.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content4" ? "event-active" : ""
-                                    }`}
-                                id="content4_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Code Clash</h2>
-                                <p>
-                                    It was an inspiring morning with Madhav Bahl, a Microsoft
-                                    Software Development Engineer and proud VIT alumnus, at our
-                                    InnoVision Talks! Madhav Behl, an inspiration to many, shared
-                                    his remarkable journey from VIT to Microsoft, a true testament
-                                    to dedication and ambition. He unveiled the 'Tech Mantras'
-                                    that guided him through his career, offering invaluable
-                                    insights into the tech world. It was a unique opportunity to
-                                    gain knowledge from a Microsoft veteran, and we hope you
-                                    didn't miss out!
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content5" ? "event-active" : ""
-                                    }`}
-                                id="content5_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>HackXpertise 2024</h2>
-                                <p>
-                                    Design enthusiasts had an outstanding opportunity to explore
-                                    the impact of UI/UX cloning at the 'Pixel Perfect: The UI/UX
-                                    Cloning Masterclass.' This event went beyond design practice,
-                                    emphasizing the societal benefits of dissecting and enhancing
-                                    digital interfaces. The practice contributed to user-friendly
-                                    experiences, ensuring smoother navigation, improved
-                                    accessibility, and economic growth. UI/UX cloning emerged as
-                                    the creative key for collective innovation and superior
-                                    design. Participants delved into user-centered design, ethical
-                                    considerations, and more, gaining insights into the positive
-                                    changes UI/UX cloning can catalyze.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content6" ? "event-active" : ""
-                                    }`}
-                                id="content6_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>CodeRush 2.0</h2>
-                                <p>
-                                    For those curious about regression in machine learning and its
-                                    potential business applications, IEEE TEMS offered valuable
-                                    insights in a recent session. Whether you were interested in
-                                    understanding what regression is, how it's used, or its
-                                    benefits for your business, this session had it all. Covering
-                                    applications such as answering business-related questions and
-                                    assessing product performance, regression analytics was
-                                    showcased as a powerful tool for making impactful decisions.
-                                    From customer retention rates to estimated trends in a matter
-                                    of months, the session provided guidance on leveraging
-                                    regression for smarter business decisions.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content7" ? "event-active" : ""
-                                    }`}
-                                id="content7_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Alumni Talks</h2>
-                                <p>
-                                    Ever wondered about mastering coding efficiency? The event
-                                    provided a platform for participants to explore the mastery of
-                                    Bootstrap, a robust frontend framework that enables web
-                                    developers to effortlessly craft impressive, adaptable, and
-                                    intuitive websites. With its extensive array of pre-designed
-                                    elements and a flexible grid structure, Bootstrap expedites
-                                    the design and coding process, ensuring consistent performance
-                                    on various screen sizes. Enthusiasts had the opportunity to
-                                    dive into the realm of design boundaries with Bootstrap, as
-                                    the event aimed to inspire and reshape the way participants
-                                    approach web design.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content8" ? "event-active" : ""
-                                    }`}
-                                id="content8_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Outreach</h2>
-                                <p>
-                                    The Code Crafters session was designed to guide participants
-                                    through the foundations of web development, focusing on HTML
-                                    and CSS. The hands-on event covered everything from
-                                    structuring web pages with HTML to adding beautiful styles and
-                                    layouts using CSS. Whether attendees were complete beginners
-                                    or had some experience, the session provided essential skills
-                                    for building websites from scratch. The incredible opportunity
-                                    to learn and dive into web development was open to all.
-                                    Participants were encouraged to register on VTOP to secure
-                                    their spot and join in unlocking the world of web creation
-                                    together.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div
-                    className={`active-year evnentContent ${activeYear === "2022" ? "" : "hidden"}`}
-                    id="2022events"
-                >
-                    <div className="container1">
-                        <div className="event-icon">
-                            <div
-                                className={`imgBx ${activeContent === "content1" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 1 }}
-                                data-id="content1"
-                                onClick={() => handleContentChange("content1")}
-                            >
-                                <img
-                                    src="events/2023/codeRush.webp"
-                                    alt="Code Rush, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content2" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 2 }}
-                                data-id="content2"
-                                onClick={() => handleContentChange("content2")}
-                            >
-                                <img src="events/2023/react.webp" alt="React, IEEE TEMS" />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content3" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 3 }}
-                                data-id="content3"
-                                onClick={() => handleContentChange("content3")}
-                            >
-                                <img src="events/2023/BB.webp" alt="BB, IEEE TEMS" />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content4" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 4 }}
-                                data-id="content4"
-                                onClick={() => handleContentChange("content4")}
-                            >
-                                <img
-                                    src="events/2023/innovision.webp"
-                                    alt="Innovision Talk, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content5" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 5 }}
-                                data-id="content5"
-                                onClick={() => handleContentChange("content5")}
-                            >
-                                <img
-                                    src="events/2023/pixelPerfect.webp"
-                                    alt="Pixel Perfect, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content6" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 6 }}
-                                data-id="content6"
-                                onClick={() => handleContentChange("content6")}
-                            >
-                                <img
-                                    src="events/2023/data.webp"
-                                    alt="Data Science, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content7" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 7 }}
-                                data-id="content7"
-                                onClick={() => handleContentChange("content7")}
-                            >
-                                <img
-                                    src="events/2023/bootstrap.webp"
-                                    alt="Bootstrap, IEEE TEMS"
-                                />
-                            </div>
-                            <div
-                                className={`imgBx ${activeContent === "content8" ? "active" : ""
-                                    }`}
-                                style={{ "--i": 8 }}
-                                data-id="content8"
-                                onClick={() => handleContentChange("content8")}
-                            >
-                                <img
-                                    src="events/2023/code-crafters.webp"
-                                    alt="Code Crafters, IEEE TEMS"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="content1">
-                            <div
-                                className={`contentBx ${activeContent === "content1" ? "active" : ""
-                                    }`}
-                                id="content1"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2023/codeRush.webp"
-                                            alt="Code Rush, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content2" ? "active" : ""
-                                    }`}
-                                id="content2"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img src="events/2023/react.webp" alt="REACT, IEEE TEMS" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content2" ? "active" : ""
-                                    }`}
-                                id="content2"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img src="events/2023/react.webp" alt="REACT, IEEE TEMS" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content3" ? "active" : ""
-                                    }`}
-                                id="content3"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2023/BB.webp"
-                                            alt="Bezzie Bench, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content4" ? "active" : ""
-                                    }`}
-                                id="content4"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2023/innovision.webp"
-                                            alt="Innovision, IEEE TEMS VIT"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content5" ? "active" : ""
-                                    }`}
-                                id="content5"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2023/pixelPerfect.webp"
-                                            alt="Pixel Perfect, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content6" ? "active" : ""
-                                    }`}
-                                id="content6"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img src="events/2023/data.webp" alt="Data, IEEE TEMS" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className={`contentBx ${activeContent === "content7" ? "active" : ""
-                                    }`}
-                                id="content7"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2023/bootstrap.webp"
-                                            alt="Bootstrap, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className={`contentBx ${activeContent === "content8" ? "active" : ""
-                                    }`}
-                                id="content8"
-                            >
-                                <div className="card">
-                                    <div className="imgBx2">
-                                        <img
-                                            src="events/2023/code-crafters.webp"
-                                            alt="Code Crafters, IEEE TEMS"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="event-description">
-                        <div className="event-description-content">
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content1" ? "event-active" : ""
-                                    }`}
-                                id="content1_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Code Rush</h2>
-                                <p>
-                                    The adrenaline-fueled event, "Code Rush: Ignite the Coder in
-                                    You," was a thrilling opportunity that took participants'
-                                    coding skills to the next level. In this intense coding relay
-                                    race, attendees experienced the excitement of solving
-                                    real-world problems under pressure, racing against time to
-                                    showcase their coding prowess. The event was not just a
-                                    challenge; it was a chance for participants to collaborate,
-                                    compete, and conquer the coding world. Those who participated
-                                    not only proved their mettle but also earned well-deserved
-                                    bragging rights in this past high-stakes coding competition.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content2" ? "event-active" : ""
-                                    }`}
-                                id="content2_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Unlocking React.js</h2>
-                                <p>
-                                    Dived into the world of React JS, the JavaScript library has
-                                    showcased its transformative impact on the way we construct
-                                    web applications. Participants explored the magic behind
-                                    creating responsive, dynamic, and user-friendly interfaces
-                                    with unparalleled ease. The event provided insights and
-                                    hands-on experiences, unveiling the capabilities of React JS
-                                    in shaping the future of web development.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content3" ? "event-active" : ""
-                                    }`}
-                                id="content3_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Bezzie Bench</h2>
-                                <p>
-                                    Bezzie Bench was all about discovering how well you and your
-                                    friend worked together, offering a unique opportunity to
-                                    explore the dynamics of your friendship. During the event,
-                                    attendees had the chance to check out a variety of amazing
-                                    homemade crafts, including tiaras, bracelets, and dream
-                                    catchers, all available at affordable prices. These crafts
-                                    added a special touch to the occasion, providing a delightful
-                                    way to light up memories and create lasting moments.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content4" ? "event-active" : ""
-                                    }`}
-                                id="content4_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Innovision Talks</h2>
-                                <p>
-                                    It was an inspiring morning with Madhav Bahl, a Microsoft
-                                    Software Development Engineer and proud VIT alumnus, at our
-                                    InnoVision Talks! Madhav Behl, an inspiration to many, shared
-                                    his remarkable journey from VIT to Microsoft, a true testament
-                                    to dedication and ambition. He unveiled the 'Tech Mantras'
-                                    that guided him through his career, offering invaluable
-                                    insights into the tech world. It was a unique opportunity to
-                                    gain knowledge from a Microsoft veteran, and we hope you
-                                    didn't miss out!
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content5" ? "event-active" : ""
-                                    }`}
-                                id="content5_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Pixel Perferct</h2>
-                                <p>
-                                    Design enthusiasts had an outstanding opportunity to explore
-                                    the impact of UI/UX cloning at the 'Pixel Perfect: The UI/UX
-                                    Cloning Masterclass.' This event went beyond design practice,
-                                    emphasizing the societal benefits of dissecting and enhancing
-                                    digital interfaces. The practice contributed to user-friendly
-                                    experiences, ensuring smoother navigation, improved
-                                    accessibility, and economic growth. UI/UX cloning emerged as
-                                    the creative key for collective innovation and superior
-                                    design. Participants delved into user-centered design, ethical
-                                    considerations, and more, gaining insights into the positive
-                                    changes UI/UX cloning can catalyze.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content6" ? "event-active" : ""
-                                    }`}
-                                id="content6_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Data to Decision</h2>
-                                <p>
-                                    For those curious about regression in machine learning and its
-                                    potential business applications, IEEE TEMS offered valuable
-                                    insights in a recent session. Whether you were interested in
-                                    understanding what regression is, how it's used, or its
-                                    benefits for your business, this session had it all. Covering
-                                    applications such as answering business-related questions and
-                                    assessing product performance, regression analytics was
-                                    showcased as a powerful tool for making impactful decisions.
-                                    From customer retention rates to estimated trends in a matter
-                                    of months, the session provided guidance on leveraging
-                                    regression for smarter business decisions.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content7" ? "event-active" : ""
-                                    }`}
-                                id="content7_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Inovate With Bootstrap</h2>
-                                <p>
-                                    Ever wondered about mastering coding efficiency? The event
-                                    provided a platform for participants to explore the mastery of
-                                    Bootstrap, a robust frontend framework that enables web
-                                    developers to effortlessly craft impressive, adaptable, and
-                                    intuitive websites. With its extensive array of pre-designed
-                                    elements and a flexible grid structure, Bootstrap expedites
-                                    the design and coding process, ensuring consistent performance
-                                    on various screen sizes. Enthusiasts had the opportunity to
-                                    dive into the realm of design boundaries with Bootstrap, as
-                                    the event aimed to inspire and reshape the way participants
-                                    approach web design.
-                                </p>
-                            </div>
-                            <div
-                                className={`event-description-content-text descriptionBx ${activeContent === "content8" ? "event-active" : ""
-                                    }`}
-                                id="content8_description"
-                            >
-                                <h2 style={{ padding: "0px" }}>Code Crafters</h2>
-                                <p>
-                                    The Code Crafters session was designed to guide participants
-                                    through the foundations of web development, focusing on HTML
-                                    and CSS. The hands-on event covered everything from
-                                    structuring web pages with HTML to adding beautiful styles and
-                                    layouts using CSS. Whether attendees were complete beginners
-                                    or had some experience, the session provided essential skills
-                                    for building websites from scratch. The incredible opportunity
-                                    to learn and dive into web development was open to all.
-                                    Participants were encouraged to register on VTOP to secure
-                                    their spot and join in unlocking the world of web creation
-                                    together.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
         </section>
     );
 };
 
 export default Event;
+
