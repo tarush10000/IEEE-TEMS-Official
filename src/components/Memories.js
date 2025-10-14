@@ -6,14 +6,13 @@ const images = [
   { src: "img1.webp", alt: "Riviera , IEEE TEMS Vellore", caption: "" },
   { src: "img2.webp", alt: "Ice-Breaking , IEEE TEMS Vellore", caption: "HackXpertise 2.0" },
   { src: "img3.webp", alt: "Innovision , IEEE TEMS Vellore", caption: "" },
-  { src: "img4.webp", alt: "Code Rush , IEEE TEMS Vellore", caption: "Expo Gravitas 2024" },
+  { src: "img4.webp", alt: "Code Rush , IEEE TEMS Vellore", caption: "Expo Gravitas 2025" },
   { src: "img5.webp", alt: "Riviera , IEEE TEMS Vellore", caption: "" },
   { src: "img6.webp", alt: "Gravitas, IEEE TEMS Vellore", caption: "" },
-  { src: "img7.webp", alt: "Innovision, IEEE TEMS Vellore", caption: "Expo Riviera 2024" },
-  { src: "img8.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Gravitas 2023" },
-  { src: "img9.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Innovision Talks" },
-  { src: "img10.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Riviera 2023" },
-  { src: "img11.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Team 2022-23" }
+  { src: "img8.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Gravitas 2025" },
+  { src: "img9.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Bouncing Castle" },
+  { src: "img10.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Gravitas 2025" },
+  { src: "img11.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Riviera 2025" }
 ];
 
 const Memories = () => {
