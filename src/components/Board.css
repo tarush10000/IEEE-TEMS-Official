@@ -335,7 +335,8 @@
   }
 
   .tilted-card-wrapper {
-    height: 100px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -361,7 +362,8 @@
   /* Adjust image size to prevent text overlap */
   .tilted-card-wrapper {
     width: 100%;
-    height: 100px; /* Reduced height to create more space */
+    height: auto;
+    aspect-ratio: 1 / 1;
     margin: 0 auto;
   }
   
@@ -369,7 +371,13 @@
   .member-info-below {
     width: 100%;
     margin-left: 0;
-    margin-top: 25px; /* Added significant space between image and text */
+    margin-top: 15px; /* Added some space between image and text */
+  }
+  
+  .member-info-below .member-name,
+  .member-info-below .member-position,
+  .member-info-below .social-links {
+    margin-left: 0; /* Reset left margin for centered text */
   }
 
   .tabs a {
@@ -383,9 +391,10 @@
   .member-card-container {
     max-width: 240px;
   }
-
+  
   .tilted-card-wrapper {
-    height: 220px; /* Further reduced height for small screens */
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .tabs a {
@@ -393,5 +402,3 @@
     font-size: medium;
   }
 }
-
-
