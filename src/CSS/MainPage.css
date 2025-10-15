@@ -308,3 +308,43 @@ body {
     overflow: hidden;
 
 }
+
+/* Minimal thin green scrollbar */
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #00ff44;
+    border-radius: 3px;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #00ff44 rgba(0, 0, 0, 0.2);
+}
+
+body {
+    color: white;
+    background-color: rgb(22, 22, 22);
+    overflow-x: hidden;
+}
+
+/* Apply to all scrollable elements */
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #00ff44;
+    border-radius: 3px;
+}

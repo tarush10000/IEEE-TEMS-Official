@@ -1,78 +1,226 @@
+#Memories {
+    padding: 80px 0 100px 0;
+    background-color: rgb(22, 22, 22);
+}
+
 #Memories h2 {
     position: relative;
     color: white;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 50px;
+    margin-bottom: 50px;
+}
 
+/* Carousel Container */
+#carouselExampleIndicators {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .carousel-item {
-    padding-top: 12px;
-    transition: opacity 1.2s ease-in-out;
+    padding: 0;
+    transition: opacity 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 65vh;
 }
 
 .carousel-inner {
     position: relative;
 }
 
+/* Centered Images */
 .mimg {
-    display:block;
+    display: block;
     margin: 0 auto;
-    width: 62%;
-    max-width: 980px;
-    height: 80vh; /* Increased from 56vh */
+    width: 80%;
+    max-width: 850px;
+    height: 65vh;
     object-fit: cover;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
+/* Caption Pills */
 .caption-pill {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 22px;
-    background: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(30,30,30,0.55));
+    bottom: 25px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
     color: #fff;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 16px;
-    backdrop-filter: blur(4px);
-    min-width: 160px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transition: opacity 0.5s ease;
 }
 
-.carousel-item .caption-pill { transform: translateX(-50%) translateY(8px); }
-.carousel-item.active .caption-pill { opacity: 1; transform: translateX(-50%) translateY(0); }
+.carousel-item.active .caption-pill { 
+    opacity: 1; 
+}
 
+/* Navigation Controls */
 .custom-control {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: auto;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
-.carousel-control-prev.custom-control { left: calc(50% - 520px); }
-.carousel-control-next.custom-control { right: calc(50% - 520px); }
+.custom-control:hover {
+    opacity: 1;
+}
 
-.carousel-indicators { bottom: -34px; }
-.carousel-indicators button { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.45); border: none; }
-.carousel-indicators .active { background: #3DEB00; box-shadow: 0 0 8px rgba(61,235,0,0.4); }
+.carousel-control-prev.custom-control { 
+    left: 5%; 
+}
 
-.svg { height: 44px; width: 44px; }
+.carousel-control-next.custom-control { 
+    right: 5%; 
+}
 
-@media (max-width: 900px) {
-  .carousel-control-prev.custom-control { left: 12px; }
-  .carousel-control-next.custom-control { right: 12px; }
-  .mimg { height: 55vh; /* Increased from 48vh */ width: 96%; }
-  .caption-pill { bottom: 14px; font-size: 14px; padding: 6px 12px; }
+.svg { 
+    height: 36px; 
+    width: 36px;
+}
+
+/* Minimal Carousel Indicators */
+.carousel-indicators {
+    bottom: -50px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.carousel-indicators button {
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.carousel-indicators button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-indicators button.active {
+    background: #00ff44;
+    width: 32px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .carousel-control-prev.custom-control { 
+        left: 3%; 
+    }
+    .carousel-control-next.custom-control { 
+        right: 3%; 
+    }
+    
+    .mimg { 
+        width: 85%;
+        height: 55vh;
+    }
+}
+
+@media (max-width: 768px) {
+    #Memories {
+        padding: 60px 0 90px 0;
+    }
+    
+    #Memories h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+    
+    .carousel-item {
+        min-height: 50vh;
+    }
+    
+    .mimg { 
+        width: 90%;
+        height: 50vh;
+        border-radius: 10px;
+    }
+    
+    .caption-pill { 
+        bottom: 20px; 
+        font-size: 13px; 
+        padding: 6px 16px;
+    }
+    
+    .svg { 
+        height: 32px; 
+        width: 32px;
+    }
+    
+    .carousel-control-prev.custom-control { 
+        left: 2%; 
+    }
+    
+    .carousel-control-next.custom-control { 
+        right: 2%; 
+    }
+    
+    .carousel-indicators {
+        bottom: -45px;
+        gap: 8px;
+    }
+    
+    .carousel-indicators button {
+        width: 28px;
+        height: 1px;
+    }
+    
+    .carousel-indicators button.active {
+        width: 28px;
+    }
 }
 
 @media (max-width: 480px) {
-  .mimg { height: 45vh; /* Increased from 40vh */ width: 100%; border-radius: 12px; }
-  .caption-pill { min-width: 120px; font-size: 13px; }
-  .carousel-indicators { bottom: -28px; }
-  .svg { height: 32px; width: 32px; }
+    #Memories {
+        padding: 40px 0 80px 0;
+    }
+    
+    #Memories h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .carousel-item {
+        min-height: 40vh;
+    }
+    
+    .mimg { 
+        width: 95%;
+        height: 45vh;
+        border-radius: 8px;
+    }
+    
+    .caption-pill {
+        font-size: 12px;
+        padding: 6px 14px;
+        bottom: 15px;
+    }
+    
+    .carousel-indicators {
+        bottom: -40px;
+    }
 }
