@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import VideoBackground from "../components/VideoBackground";
 import "../CSS/homepage.css";
 import LetterGlitch from '../Letter Glitch/LetterGlitch';
 
