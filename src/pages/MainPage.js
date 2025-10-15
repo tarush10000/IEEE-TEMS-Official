@@ -20,6 +20,7 @@ import Memories from "../components/Memories";
 import "../CSS/MainPage.css";
 
 import Developers from "../components/Developers";
+import NewBlog from "../components/NewBlog";
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -262,6 +263,7 @@ const HomePage = () => {
       <Domains />
       <Events />
       <Blog />
+      <NewBlog />
       <Board />
       <Faculty />
       <Memories />
