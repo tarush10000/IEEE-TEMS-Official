@@ -5,17 +5,6 @@
   status = 200
   force = false
 
-# Specific redirects for your known routes (optional but can help with SEO)
-[[redirects]]
-  from = "/main"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/developers"
-  to = "/index.html"
-  status = 200
-
 [build]
   # Build command for Create React App
   command = "npm run build"
@@ -26,7 +15,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Headers for better security and performance
+# Headers for better security
 [[headers]]
   for = "/*"
   [headers.values]
@@ -34,48 +23,32 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    # Allow hash-based navigation
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
 
-# Cache control for static assets
+# Cache control for static assets in the static folder only
 [[headers]]
-  for = "/static/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Cache control for JS and CSS files in the build folder
-[[headers]]
-  for = "/*.js"
+  for = "/static/css/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/*.css"
+  for = "/static/js/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Cache control for index.html - must revalidate
+[[headers]]
+  for = "/static/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# No caching for index.html to ensure router works
 [[headers]]
   for = "/index.html"
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
-    Pragma = "no-cache"
-    Expires = "0"
 
-# Cache control for other HTML files
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-# Cache control for service worker and manifest
+# No caching for service worker
 [[headers]]
   for = "/service-worker.js"
-  [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
-
-[[headers]]
-  for = "/manifest.json"
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
 
