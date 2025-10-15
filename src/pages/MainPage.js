@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Lottie from "lottie-web";
 import About from "../components/About";
-import Blog from "../components/Blog";
+// import Blog from "../components/Blog"; // blog component disabled
 import Board from "../components/Board";
 import ContactSection from "../components/ContactSection";
 import Domains from "../components/Domains";
@@ -262,7 +262,7 @@ const HomePage = () => {
       <About />
       <Domains />
       <Events />
-      <Blog />
+  {/* <Blog /> removed - Blog component disabled */}
       <NewBlog />
       <Board />
       <Faculty />

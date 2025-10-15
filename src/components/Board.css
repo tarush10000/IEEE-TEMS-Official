@@ -2,7 +2,31 @@
 
 .wrapper {
   text-align: center;
-  margin-bottom: -20px;
+  margin-bottom: 1.5rem; /* remove negative margin so following elements don't overlap */
+}
+
+/* Keep the Board heading above the tab selector and avoid overlap */
+#Board h2 {
+  position: relative;
+  z-index: 40; /* sit above the glowing selector/tab background */
+  margin-bottom: 0.75rem; /* ensure space between heading and tabs */
+}
+
+/* Slightly push the tabs down so the selector doesn't overlap the heading */
+.wrapper .tabs {
+  margin-top: 0.6rem;
+  z-index: 10; /* ensure tabs remain underneath the heading */
+}
+
+/* Add extra top padding to the Board section so it clears the View More button below the previous section */
+#Board {
+  padding-top: 5rem; /* increases the distance between the section above and the Board heading */
+}
+
+@media (max-width: 600px) {
+  #Board {
+    padding-top: 2.5rem; /* reduce padding on small screens to avoid excessive spacing */
+  }
 }
 
 .tabs {
@@ -83,6 +107,7 @@
   padding:  5rem 2rem 2rem 7rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 3.5rem; /* extra bottom space so elements below (like view-more) do not overlap */
 }
 
 /* Special layout for first two rows in 2025 board */
@@ -235,6 +260,25 @@
     font-size: medium;
   }
 }
+
+  /* Ensure 'View more' button doesn't overlap the board cards.
+     Replace or extend these selectors to match the actual button class used in your markup. */
+  .view-more,
+  .view-more-btn,
+  .blog-view-more {
+    display: block;
+    margin: 1.5rem auto 3rem; /* give space above and below */
+    position: relative !important; /* prevent absolute positioning overlap */
+    z-index: 50; /* sit above glow effects */
+    clear: both;
+  }
+
+  /* Safety: if a button was absolutely positioned, ensure it has a place in flow */
+  .view-more[style],
+  .view-more-btn[style],
+  .blog-view-more[style] {
+    position: relative !important;
+  }
 
 /* Shift the first 4 cards' images LEFT in 2025 */
 .Board2025 .member-card-container:nth-child(1),

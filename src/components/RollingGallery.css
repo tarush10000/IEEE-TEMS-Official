@@ -1,8 +1,9 @@
 .gallery-container {
   position: relative;
-  height: 500px;
+  height: 600px; /* increased height for larger images */
   width: 100%;
-  overflow: visible;
+  overflow: hidden; /* hide any 3d overflow on small viewports */
+  padding-bottom: 9rem; /* reduced space so View More sits closer to images */
 }
 
 .gallery-gradient {
@@ -23,6 +24,61 @@
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #060606 100%);
 }
 
+/* Ensure the view more button wrapper places the button below the carousel */
+.rolling-view-more-wrapper {
+  margin-top: 0rem;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.blogs-button {
+  border-radius: 7px; 
+  padding: 8px 16px;
+  background-color: green; 
+  font-size: larger; 
+  font-weight: bold;
+  color: black;   
+  display: inline-block;
+  margin: 0rem auto 0rem; /* reduced top and bottom spacing to tighten gap */
+  position: relative;
+  z-index: 30;
+  touch-action: manipulation; /* improve tap responsiveness on mobile */
+}
+.blogs-button:hover{ background-color: white; }
+
+/* Nudge the button slightly up so it visually separates from the following Board section */
+
+
+/* Space between heading and slideshow */
+.gallery-container h2 {
+  margin-bottom: 0rem; /* ensure heading sits above the gallery */
+}
+
+.gallery-track { margin-top: 0 !important; }
+
+
+@media (max-width: 600px) {
+  /* .rolling-view-more-wrapper {
+    margin-top: -0.6rem; 
+  } */
+
+  .gallery-container { height: 360px; padding-bottom: 2rem; }
+  .gallery-content { perspective: 700px; }
+  .gallery-track { min-height: 160px; margin-top: 0; }
+  .gallery-img { height: 120px; width: 120px; border-radius: 12px; border-width: 3px; }
+  .gallery-item { padding: 4%; }
+  .gallery-gradient { width: 36px; }
+}
+
+/* Improve spacing and sizing for intermediate tablet widths (700-1000px) */
+@media (min-width: 700px) and (max-width: 1000px) {
+  .gallery-container { height: 480px; padding-bottom: 3.5rem; }
+  .gallery-img { height: 160px; width: 160px; }
+  .gallery-track { min-height: 220px; }
+  .gallery-container h2 { margin-bottom: 1.8rem; font-size: 2.8vw; }
+}
+
 .gallery-content {
   display: flex;
   height: 100%;
@@ -30,6 +86,7 @@
   justify-content: center;
   perspective: 1000px;
   transform-style: preserve-3d;
+  overflow: hidden; /* ensure children do not overflow the container */
 }
 
 .gallery-track {
@@ -41,6 +98,7 @@
   cursor: grab;
   transform-style: preserve-3d;
   width: 100%;
+  touch-action: pan-y; /* allow vertical scroll while dragging horizontally */
 }
 
 .gallery-item {
@@ -51,16 +109,18 @@
   justify-content: center;
   padding: 8%;
   backface-visibility: hidden;
+  user-select: none;
 }
 
 .gallery-img {
   pointer-events: none;
-  height: 200px;
-  width: 200px;
-  border-radius: 15px;
-  border: 3px solid #fff;
-  object-fit:contain;
+  height: 220px; /* larger default image size */
+  width: 220px;
+  border-radius: 18px;
+  border: 4px solid #fff;
+  object-fit: cover; /* fill the larger box */
   transition: 0.3s ease;
+  max-width: 90vw; /* ensure images scale down on narrow screens */
 }
 
 .gallery-item:hover .gallery-img {
@@ -86,12 +146,13 @@
 
 
 
+@media (max-width: 1024px) {
+  .gallery-container { height: 560px; }
+  .gallery-img { height: 260px; width: 260px; }
+}
+
 @media (max-width: 768px) {
-  .gallery-item {
-    padding: 6%;
-  }
-  .gallery-img {
-    height: 100px;
-    width: 220px;
-  }
+  .gallery-container { height: 420px; }
+  .gallery-item { padding: 6%; }
+  .gallery-img { height: 180px; width: 180px; }
 }

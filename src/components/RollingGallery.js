@@ -17,7 +17,9 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   images = IMGS;
   const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
 
-  const cylinderWidth = isScreenSizeSm ? 1500 : 2000;
+  // increase cylinder width so images are larger and spaced further from the center
+  // On small screens use a much smaller cylinder to avoid overflow/scroll issues
+  const cylinderWidth = isScreenSizeSm ? 1000 : 2600;
   const faceCount = images.length;
   const faceWidth = (cylinderWidth / faceCount) * 1; // Increased width for items
   const dragFactor = 0.05;
@@ -26,6 +28,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   const rotation = useMotionValue(0);
   const controls = useAnimation();
   const autoplayRef = useRef();
+  const isMounted = useRef(false);
 
   const handleImageClick = (url) => {
     window.open(url, '_blank');
@@ -36,10 +39,12 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   };
 
   const handleDragEnd = (_, info) => {
-    controls.start({
-      rotateY: rotation.get() + info.velocity.x * dragFactor,
-      transition: { type: "spring", stiffness: 60, damping: 20, mass: 0.1, ease: "easeOut" },
-    });
+    if (isMounted.current) {
+      controls.start({
+        rotateY: rotation.get() + info.velocity.x * dragFactor,
+        transition: { type: "spring", stiffness: 60, damping: 20, mass: 0.1, ease: "easeOut" },
+      });
+    }
   };
 
   const transform = useTransform(rotation, (value) => {
@@ -48,17 +53,24 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
 
   // Autoplay effect with adjusted timing
   useEffect(() => {
+    isMounted.current = true;
+
     if (autoplay) {
       autoplayRef.current = setInterval(() => {
-        controls.start({
-          rotateY: rotation.get() - (360 / faceCount),
-          transition: { duration: 2, ease: "linear" },
-        });
+        if (isMounted.current) {
+          controls.start({
+            rotateY: rotation.get() - (360 / faceCount),
+            transition: { duration: 2, ease: "linear" },
+          });
+        }
         rotation.set(rotation.get() - (360 / faceCount));
       }, 2000);
-
-      return () => clearInterval(autoplayRef.current);
     }
+
+    return () => {
+      isMounted.current = false;
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+    };
   }, [autoplay, rotation, controls, faceCount]);
 
   useEffect(() => {
@@ -74,31 +86,35 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   const handleMouseEnter = () => {
     if (autoplay && pauseOnHover) {
       clearInterval(autoplayRef.current);
-      controls.stop(); // Stop the animation smoothly
+      if (isMounted.current) controls.stop(); // Stop the animation smoothly
     }
   };
 
   const handleMouseLeave = () => {
     if (autoplay && pauseOnHover) {
-      controls.start({
-        rotateY: rotation.get() - (360 / faceCount),
-        transition: { duration: 2, ease: "linear" },
-      });
-      rotation.set(rotation.get() - (360 / faceCount));
-
-      autoplayRef.current = setInterval(() => {
+      if (isMounted.current) {
         controls.start({
           rotateY: rotation.get() - (360 / faceCount),
           transition: { duration: 2, ease: "linear" },
         });
+      }
+      rotation.set(rotation.get() - (360 / faceCount));
+
+      autoplayRef.current = setInterval(() => {
+        if (isMounted.current) {
+          controls.start({
+            rotateY: rotation.get() - (360 / faceCount),
+            transition: { duration: 2, ease: "linear" },
+          });
+        }
         rotation.set(rotation.get() - (360 / faceCount));
       }, 2000);
     }
   };
 
   return (
-    <div className="gallery-container">
-        <h2 style={{paddingTop:"0px"}}>
+    <section id="Blog" className="gallery-container">
+      <h2 style={{paddingTop:"0px"}}>
         <span>
           <strong>Our Blogs</strong>
         </span>
@@ -116,7 +132,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
             rotateY: rotation,
             width: cylinderWidth,
             transformStyle: "preserve-3d",
-            marginTop: "-70px",
+            marginTop: "0px",
           }}
           onDrag={handleDrag}
           onDragEnd={handleDragEnd}
@@ -147,7 +163,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
           ))}
         </motion.div>
       </div>
-      <div style={{ marginTop: "-50px" }} className="mb-5 text-center">
+      <div className="mb-5 text-center rolling-view-more-wrapper">
         <a
           style={{ textDecoration: "none" }}
           target="_blank" rel="noopener noreferrer"
@@ -156,7 +172,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
           <button className="blogs-button">View More</button>
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
