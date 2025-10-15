@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState, useMemo } from "react";
 
 import {
-    faInstagram,
-    faLinkedin,
-    faMedium,
+  faInstagram,
+  faLinkedin,
+  faMedium,
 } from "@fortawesome/free-brands-svg-icons";
 import Lottie from "lottie-web";
 import About from "../components/About";
@@ -55,7 +55,7 @@ const HomePage = () => {
     };
 
     typeLetters();
-    return () => {};
+    return () => { };
   }, [words]);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ const HomePage = () => {
               <img
                 src="/VIT Logo.webp"
                 alt="VIT Logo"
-              
+
               />
             </a>
           </div>
@@ -175,8 +175,10 @@ const HomePage = () => {
               right: menuOpen ? "0" : "-100%",
               width: "320px",
               height: "100%",
-              background: "rgba(255, 255, 255, 0.02)",
-              backdropFilter: "blur(8px)",
+              background: "rgba(20, 20, 20, 0.95)",
+              backdropFilter: "blur(15px)",
+              borderLeft: "1px solid rgba(0, 255, 68, 0.2)",
+              boxShadow: "-5px 0 30px rgba(0, 0, 0, 0.5)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -212,7 +214,7 @@ const HomePage = () => {
                 Domains
               </a>
               <a
-                href="#Event"
+                href="#Events"
                 className="menu-elt"
                 style={menuItemStyle}
                 onClick={closeMenu}
@@ -220,7 +222,7 @@ const HomePage = () => {
                 Events
               </a>
               <a
-                href="#blog-section"
+                href="#Blogs"
                 className="menu-elt"
                 style={menuItemStyle}
                 onClick={closeMenu}
@@ -236,7 +238,7 @@ const HomePage = () => {
                 Board
               </a>
               <a
-                href="#memories"
+                href="#Memories"
                 className="menu-elt"
                 style={menuItemStyle}
                 onClick={closeMenu}
@@ -244,7 +246,7 @@ const HomePage = () => {
                 Memories
               </a>
               <a
-                href="#Contact"
+                href="#ContactSection"
                 className="menu-elt"
                 style={menuItemStyle}
                 onClick={closeMenu}
@@ -262,8 +264,8 @@ const HomePage = () => {
       <Blog />
       <Board />
       <Faculty />
-  <Memories />
-  <ContactSection />
+      <Memories />
+      <ContactSection />
       <Footer />
     </div>
   );
@@ -271,14 +273,17 @@ const HomePage = () => {
 
 const menuItemStyle = {
   display: "block",
-  padding: "20px",
+  padding: "18px 25px",
   textDecoration: "none",
   fontFamily: "'Noto Sans TC', sans-serif",
-  fontSize: "22px",
-  fontWeight: "550",
-  textAlign: "center",
-  transition: "background-color 0.3s ease",
-  borderBottom: "2px solid white",
+  fontSize: "20px",
+  fontWeight: "600",
+  textAlign: "left",
+  transition: "all 0.3s ease",
+  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+  borderRadius: "8px",
+  margin: "5px 10px",
+  color: "#e0e0e0",
 };
 
 export default HomePage;

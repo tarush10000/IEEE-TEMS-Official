@@ -199,8 +199,8 @@ class FuturisticCursor {
         this.cursorDot.style.top = this.mouseY + 'px';
 
         // Smooth ring movement with slight delay
-        this.ringX += (this.mouseX - this.ringX) * 0.1;
-        this.ringY += (this.mouseY - this.ringY) * 0.1;
+        this.ringX += (this.mouseX - this.ringX) * 0.3;
+        this.ringY += (this.mouseY - this.ringY) * 0.3;
 
         this.cursorRing.style.left = this.ringX + 'px';
         this.cursorRing.style.top = this.ringY + 'px';

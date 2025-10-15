@@ -272,8 +272,10 @@ body {
 }
 
 .menu-elt:hover {
-    background-color: white;
-    color: black;
+    background: linear-gradient(135deg, rgba(0, 255, 68, 0.1) 0%, rgba(0, 200, 102, 0.1) 100%);
+    color: #00ff44;
+    border-left: 3px solid #00ff44;
+    padding-left: 22px;
 }
 
 #homebg {

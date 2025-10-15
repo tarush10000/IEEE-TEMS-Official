@@ -23,7 +23,7 @@
     border-radius: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    transition: all 0.1s ease;
+    transition: all 0.05s ease;
     box-shadow:
         0 0 10px #00ffaa,
         0 0 20px #00ffaa,
@@ -38,7 +38,7 @@
     border-radius: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    transition: all 0.2s ease;
+    transition: all 0.05s ease;
     background: rgba(0, 255, 170, 0.05);
     backdrop-filter: blur(2px);
 }
