@@ -7,7 +7,6 @@ import {
   faLinkedin,
   faMedium,
 } from "@fortawesome/free-brands-svg-icons";
-import Lottie from "lottie-web";
 import About from "../components/About";
 // import Blog from "../components/Blog"; // blog component disabled
 import Board from "../components/Board";
@@ -20,6 +19,7 @@ import Memories from "../components/Memories";
 import "../CSS/MainPage.css";
 
 import NewBlog from "../components/NewBlog";
+import Silk from "../Silk/Silk";
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -58,20 +58,6 @@ const HomePage = () => {
     return () => { };
   }, [words]);
 
-  useEffect(() => {
-    const animation = Lottie.loadAnimation({
-      container: document.getElementById("bgimg"),
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      path: "https://lottie.host/126e9712-f452-456d-bf46-2617f37a6d55/uMTfCwBKPJ.json",
-    });
-
-    return () => {
-      animation.destroy();
-    };
-  }, []);
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -83,7 +69,13 @@ const HomePage = () => {
     <div>
       <section id="Home" style={{ background: "black" }}>
         <div id="homebg">
-          <div id="bgimg"></div>
+          <Silk
+            speed={12.5}
+            scale={1.2}
+            color="#008020"
+            noiseIntensity={1.5}
+            rotation={0.14}
+          />
         </div>
         <div id="homecontent">
           <a href="/" style={{ textDecoration: "none" }}>

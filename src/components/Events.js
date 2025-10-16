@@ -107,15 +107,8 @@ const Event = () => {
     return (
         <section id="Events">
             <div>
-                <h2 style={{ textAlign: "center", paddingBottom: "40px", color: "white" }}>
-                    <span
-                        style={{
-                            backgroundImage: "linear-gradient(to right, transparent 10%, green 10%, green 90%, transparent 90%)",
-                            backgroundSize: "100% 5px",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "0 100%",
-                        }}
-                    >
+                <h2>
+                    <span>
                         <strong>Events</strong>
                     </span>
                 </h2>

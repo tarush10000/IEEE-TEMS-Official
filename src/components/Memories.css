@@ -3,15 +3,6 @@
     background-color: rgb(22, 22, 22);
 }
 
-#Memories h2 {
-    position: relative;
-    color: white;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
-    margin-bottom: 50px;
-}
-
 /* Carousel Container */
 #carouselExampleIndicators {
     max-width: 1200px;
@@ -145,7 +136,15 @@
         padding: 60px 0 90px 0;
     }
     
-    #Memories h2 {
+    #Events h2,
+#Blog h2,
+#Board h2,
+#Memories h2,
+#ContactSection h2,
+#Faculty h2,
+#Coordinator h2,
+#About h2,
+#Domains h2 {
         font-size: 36px;
         margin-bottom: 40px;
     }

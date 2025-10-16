@@ -68,11 +68,11 @@ const Domains = () => {
 
   return (
   <section id="Domains">
-        <h2>
-          <span>
-            <strong >Domains</strong>
-          </span>
-        </h2>
+    <h2>
+      <span>
+        <strong>Domains</strong>
+      </span>
+    </h2>
       <div 
         className="container-fluid border border-success rounded-5 text-white domain-main domain-ui-better"
         onTouchStart={handleTouchStart}
