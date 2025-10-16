@@ -8,7 +8,7 @@ const Domains = () => {
 
   const domainContent = {
     webdev: {
-      title: "Web and App Development",
+      title: "Development",
       content:
         "IEEE TEMS specializes in Web and App Development. We are dedicated to fostering creativity and honing technical skills within our community. Our initiatives include hosting coding competitions that challenge members to push their programming limits, organizing web and mobile app design workshops that provide hands-on experience in crafting stunning digital interfaces, and conducting intensive coding bootcamps to empower our members with the ability to create responsive websites and dynamic applications. Through these endeavors, we enable our members to explore and master the latest web and app technologies, ensuring they stay at the forefront of the ever-evolving digital landscape.",
     },
@@ -70,7 +70,7 @@ const Domains = () => {
   <section id="Domains">
         <h2>
           <span>
-            <strong>Domains</strong>
+            <strong >Domains</strong>
           </span>
         </h2>
       <div 

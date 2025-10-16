@@ -20,12 +20,32 @@
 
 /* Add extra top padding to the Board section so it clears the View More button below the previous section */
 #Board {
-  padding-top: 5rem; /* increases the distance between the section above and the Board heading */
+  padding-top: 25px; /* increases the distance between the section above and the Board heading */
 }
 
 @media (max-width: 600px) {
   #Board {
     padding-top: 2.5rem; /* reduce padding on small screens to avoid excessive spacing */
+  }
+  .view-more,
+  .view-more-btn,
+  .blog-view-more {
+    display: block !important;
+    margin: 1rem auto 2rem !important; /* reduce top margin */
+    position: relative !important;
+    z-index: 50 !important;
+    clear: both;
+  }
+  
+  /* Ensure flex container doesn't cut it off */
+  .tilted-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    margin-top: 50px;
+    margin-bottom: 1.5rem;;
   }
 }
 
@@ -386,14 +406,18 @@
 
 /* === Mobile View === */
 @media screen and (max-width: 600px) {
+  #Board {
+    padding-top: 2.5rem; /* reduce padding on small screens to avoid excessive spacing */
+  }
   /* Switch to a flex column layout for foolproof centering */
   .tilted-cards-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* This horizontally centers every card */
-    gap: 3rem; /* This creates space BETWEEN cards vertically */
+    align-items: center;
+    gap: 2rem;
     padding: 2rem 1rem;
-    margin-top: 70px;
+    margin-top: 50px;
+    margin-bottom: 3rem; /* Extra space for view more button */
   }
 
   /* Set a max-width for the cards */

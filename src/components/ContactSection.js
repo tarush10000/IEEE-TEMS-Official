@@ -7,13 +7,11 @@ const ContactSection = () => {
       style={{
         backgroundColor: "rgb(22, 22, 22)",
         paddingBottom: "100px",
-        paddingTop: "100px", // Added for scroll offset
+        paddingTop: "40px", // Added for scroll offset
         scrollMarginTop: "80px", // Ensures correct scroll position
       }}
     >
-      <br />
-      <br />
-      <h2 style={{ paddingTop: "0px" }}>
+      <h2 style={{ paddingTop: "0px", marginBottom: "40px" }}>
         <span>
           <strong>Contact Us</strong>
         </span>

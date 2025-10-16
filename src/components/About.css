@@ -91,7 +91,7 @@
 #About span,
 #Domains span {
   background-image: linear-gradient(to right, transparent 10%, #00ff44 10%, #00ff44 90%, transparent 90%);
-  background-size: 100% 6px;
+  background-size: 100% 3px;
   background-repeat: no-repeat;
   background-position: 0 100%;
   position: relative;
