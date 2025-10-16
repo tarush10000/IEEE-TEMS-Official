@@ -83,25 +83,8 @@ const HomePage = () => {
     <div>
       <section id="Home" style={{ background: "black" }}>
         <div id="homebg">
-          <div
-            style={{
-              width: "210vh",
-            }}
-            id="bgimg"
-          ></div>{" "}
+          <div id="bgimg"></div>
         </div>
-        <style>
-          {`
-      @media screen and (max-width: 600px) {
-        #bgimg {
-          width: 180vh; 
-          position: relative;
-          right : 650px;
-
-        }
-      }
-    `}
-        </style>
         <div id="homecontent">
           <a href="/" style={{ textDecoration: "none" }}>
             <div id="htitle">IEEE TEMS</div>
@@ -166,28 +149,43 @@ const HomePage = () => {
         </div>
 
         {menuOpen && (
-          <div
-            className="side-menu"
-            id="sideMenu"
-            style={{
-              position: "fixed",
-              top: "0",
-              right: menuOpen ? "0" : "-100%",
-              width: "320px",
-              height: "100%",
-              background: "rgba(20, 20, 20, 0.95)",
-              backdropFilter: "blur(15px)",
-              borderLeft: "1px solid rgba(0, 255, 68, 0.2)",
-              boxShadow: "-5px 0 30px rgba(0, 0, 0, 0.5)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              zIndex: "1000",
-              transition: "right 0.3s ease-in-out",
-              paddingTop: "50px",
-              overflowY: "auto",
-            }}
-          >
+          <>
+            {/* Backdrop overlay - clicking it closes the menu */}
+            <div
+              onClick={closeMenu}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                zIndex: 999,
+                transition: "opacity 0.3s ease-in-out",
+              }}
+            />
+            <div
+              className="side-menu"
+              id="sideMenu"
+              style={{
+                position: "fixed",
+                top: "0",
+                right: menuOpen ? "0" : "-100%",
+                width: "320px",
+                height: "100%",
+                background: "rgba(20, 20, 20, 0.95)",
+                backdropFilter: "blur(15px)",
+                borderLeft: "1px solid rgba(0, 255, 68, 0.2)",
+                boxShadow: "-5px 0 30px rgba(0, 0, 0, 0.5)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                zIndex: "1000",
+                transition: "right 0.3s ease-in-out",
+                paddingTop: "50px",
+                overflowY: "auto",
+              }}
+            >
             <nav className="sidebar" style={{ width: "100%" }}>
               <a
                 href="#Home"
@@ -255,6 +253,7 @@ const HomePage = () => {
               </a>
             </nav>
           </div>
+          </>
         )}
       </section>
 

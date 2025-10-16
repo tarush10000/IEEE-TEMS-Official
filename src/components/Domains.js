@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Domains.css";
 
 const Domains = () => {
   const [activeDomain, setActiveDomain] = useState("webdev");
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const domainContent = {
     webdev: {
@@ -32,6 +34,38 @@ const Domains = () => {
     },
   };
 
+  const domainKeys = Object.keys(domainContent);
+  const currentIndex = domainKeys.indexOf(activeDomain);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const swipeThreshold = 50; // minimum swipe distance in pixels
+    const swipeDistance = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0) {
+        // Swiped left - go to next domain
+        const nextIndex = (currentIndex + 1) % domainKeys.length;
+        setActiveDomain(domainKeys[nextIndex]);
+      } else {
+        // Swiped right - go to previous domain
+        const prevIndex = currentIndex === 0 ? domainKeys.length - 1 : currentIndex - 1;
+        setActiveDomain(domainKeys[prevIndex]);
+      }
+    }
+
+    // Reset touch positions
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   return (
   <section id="Domains">
         <h2>
@@ -39,7 +73,12 @@ const Domains = () => {
             <strong>Domains</strong>
           </span>
         </h2>
-      <div className="container-fluid border border-success rounded-5 text-white domain-main domain-ui-better">
+      <div 
+        className="container-fluid border border-success rounded-5 text-white domain-main domain-ui-better"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="domain-content-card-better">
           <h3 className="domain-title-better">{domainContent[activeDomain].title}</h3>
           <p className="domain-desc-better">{domainContent[activeDomain].content}</p>
