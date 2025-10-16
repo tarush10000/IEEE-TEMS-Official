@@ -1,177 +1,182 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useAnimation, useTransform } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import "./RollingGallery.css";
-import './Blog.css';
 
 const IMGS = [
-  {src: "/Blogposts/bootstrap.webp", url: "https://ieee-tems-blogs.medium.com/introduction-guide-to-bootstrap-c2149dcd80cf"},
-  {src: "/Blogposts/numpy.webp", url:"https://ieee-tems-blogs.medium.com/mastering-the-basics-of-numpy-a-step-by-step-guide-for-beginners-800bbd2337a6"},
-  {src: "/Blogposts/responsive.webp", url:"https://ieee-tems-blogs.medium.com/responsive-web-design-creating-websites-for-all-devices-96aad294def1"},
-  {src: "/Blogposts/shellscript.webp", url:"https://ieee-tems-blogs.medium.com/effortless-email-sending-on-linux-a-step-by-step-project-guide-fb557b6bda8"},
-  {src: "/Blogposts/Shellscripting.webp", url:"https://ieee-tems-blogs.medium.com/shell-scripting-to-schedule-your-day-with-crontab-and-notify-send-b320f0a8f57a"},
-  {src: "/Blogposts/snapinsta.webp", url:"https://ieee-tems-blogs.medium.com/the-linux-weatherman-crafting-accurate-reports-from-scratch-8887a0b32a77"},
-  {src:"/Blogposts/tailwind.webp", url:"https://ieee-tems-blogs.medium.com/tailwind-more-than-just-inline-css-bd1a6a01a54c"}
+  {src: "/Blogposts/bootstrap.webp", url: "https://ieee-tems-blogs.medium.com/introduction-guide-to-bootstrap-c2149dcd80cf", title: "Bootstrap Guide"},
+  {src: "/Blogposts/numpy.webp", url:"https://ieee-tems-blogs.medium.com/mastering-the-basics-of-numpy-a-step-by-step-guide-for-beginners-800bbd2337a6", title: "NumPy Basics"},
+  {src: "/Blogposts/responsive.webp", url:"https://ieee-tems-blogs.medium.com/responsive-web-design-creating-websites-for-all-devices-96aad294def1", title: "Responsive Design"},
+  {src: "/Blogposts/shellscript.webp", url:"https://ieee-tems-blogs.medium.com/effortless-email-sending-on-linux-a-step-by-step-project-guide-fb557b6bda8", title: "Shell Scripting"},
+  {src: "/Blogposts/Shellscripting.webp", url:"https://ieee-tems-blogs.medium.com/shell-scripting-to-schedule-your-day-with-crontab-and-notify-send-b320f0a8f57a", title: "Crontab Tutorial"},
+  {src: "/Blogposts/snapinsta.webp", url:"https://ieee-tems-blogs.medium.com/the-linux-weatherman-crafting-accurate-reports-from-scratch-8887a0b32a77", title: "Linux Weather"},
+  {src:"/Blogposts/tailwind.webp", url:"https://ieee-tems-blogs.medium.com/tailwind-more-than-just-inline-css-bd1a6a01a54c", title: "Tailwind CSS"}
 ];
 
-const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }) => {
-  images = IMGS;
-  const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
+const RollingGallery = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [rotation, setRotation] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
+  const animationRef = useRef(null);
+  const containerRef = useRef(null);
 
-  // increase cylinder width so images are larger and spaced further from the center
-  // On small screens use a much smaller cylinder to avoid overflow/scroll issues
-  const cylinderWidth = isScreenSizeSm ? 1000 : 2600;
+  const images = IMGS;
   const faceCount = images.length;
-  const faceWidth = (cylinderWidth / faceCount) * 1; // Increased width for items
-  const dragFactor = 0.05;
+  
+  // Responsive cylinder dimensions
+  const cylinderWidth = isMobile ? 1200 : 2400;
   const radius = cylinderWidth / (2 * Math.PI);
+  const faceWidth = cylinderWidth / faceCount;
 
-  const rotation = useMotionValue(0);
-  const controls = useAnimation();
-  const autoplayRef = useRef();
-  const isMounted = useRef(false);
-
-  const handleImageClick = (url) => {
-    window.open(url, '_blank');
-  }
-
-  const handleDrag = (_, info) => {
-    rotation.set(rotation.get() + info.offset.x * dragFactor);
-  };
-
-  const handleDragEnd = (_, info) => {
-    if (isMounted.current) {
-      controls.start({
-        rotateY: rotation.get() + info.velocity.x * dragFactor,
-        transition: { type: "spring", stiffness: 60, damping: 20, mass: 0.1, ease: "easeOut" },
-      });
-    }
-  };
-
-  const transform = useTransform(rotation, (value) => {
-    return `rotate3d(0, 1, 0, ${value}deg)`;
-  });
-
-  // Autoplay effect with adjusted timing
+  // Auto-rotation
   useEffect(() => {
-    isMounted.current = true;
-
-    if (autoplay) {
-      autoplayRef.current = setInterval(() => {
-        if (isMounted.current) {
-          controls.start({
-            rotateY: rotation.get() - (360 / faceCount),
-            transition: { duration: 2, ease: "linear" },
-          });
-        }
-        rotation.set(rotation.get() - (360 / faceCount));
-      }, 2000);
-    }
-
-    return () => {
-      isMounted.current = false;
-      if (autoplayRef.current) clearInterval(autoplayRef.current);
+    const animate = () => {
+      if (!isDragging) {
+        setRotation(prev => prev - 0.1);
+      }
+      animationRef.current = requestAnimationFrame(animate);
     };
-  }, [autoplay, rotation, controls, faceCount]);
+    
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isDragging]);
 
+  // Handle resize
   useEffect(() => {
     const handleResize = () => {
-      setIsScreenSizeSm(window.innerWidth <= 640);
+      setIsMobile(window.innerWidth <= 768);
     };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Pause on hover with smooth transition
-  const handleMouseEnter = () => {
-    if (autoplay && pauseOnHover) {
-      clearInterval(autoplayRef.current);
-      if (isMounted.current) controls.stop(); // Stop the animation smoothly
-    }
+  // Mouse/Touch handlers
+  const handleStart = (clientX) => {
+    setIsDragging(true);
+    setStartX(clientX);
+    setCurrentX(clientX);
   };
 
-  const handleMouseLeave = () => {
-    if (autoplay && pauseOnHover) {
-      if (isMounted.current) {
-        controls.start({
-          rotateY: rotation.get() - (360 / faceCount),
-          transition: { duration: 2, ease: "linear" },
-        });
-      }
-      rotation.set(rotation.get() - (360 / faceCount));
+  const handleMove = (clientX) => {
+    if (!isDragging) return;
+    setCurrentX(clientX);
+    const deltaX = (clientX - startX) * 0.5;
+    setRotation(prev => prev + deltaX);
+    setStartX(clientX);
+  };
 
-      autoplayRef.current = setInterval(() => {
-        if (isMounted.current) {
-          controls.start({
-            rotateY: rotation.get() - (360 / faceCount),
-            transition: { duration: 2, ease: "linear" },
-          });
-        }
-        rotation.set(rotation.get() - (360 / faceCount));
-      }, 2000);
+  const handleEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleImageClick = (url) => {
+    if (!isDragging) {
+      window.open(url, '_blank');
     }
   };
 
   return (
-    <section id="Blog" className="gallery-container">
-      <h2 style={{paddingTop:"0px"}}>
-        <span>
-          <strong>Our Blogs</strong>
-        </span>
-      </h2>
-      <div className="gallery-gradient gallery-gradient-left"></div>
-      <div className="gallery-gradient gallery-gradient-right"></div>
-      <div className="gallery-content">
-        <motion.div
-          drag="x"
-          dragPropagation = {false}
-          className="gallery-track"
-          onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-          style={{
-            transform: transform,
-            rotateY: rotation,
-            width: cylinderWidth,
-            transformStyle: "preserve-3d",
-            marginTop: "0px",
-          }}
-          onDrag={handleDrag}
-          onDragEnd={handleDragEnd}
-          animate={controls}
-        >
-          {images.map((item, i) => (
-            <div
-              key={i}
-              className="gallery-item"
-              style={{
-                width: `${faceWidth}px`,
-                transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
-              }}
-              onClick={(e)=>{
-                e.stopPropagation();
-                e.preventDefault();
-                handleImageClick(item.url);
-              }}
-              onPointerDown={(e) => {
-                e.stopPropagation();
-                e.nativeEvent.stopImmediatePropagation();
-              }}
-            >
-              <img src={item.src}  
-              style={{cursor:"pointer"}} alt="gallery" className="gallery-img" />
-              
-            </div>
-          ))}
-        </motion.div>
+    <section 
+      id="Blog"
+      className="gallery-section"
+    >
+      {/* Title */}
+      <div className="gallery-title-wrapper">
+        <h2 className="gallery-title">
+          <span className="gallery-title-text">
+            Our Blogs
+            <div className="gallery-title-underline"></div>
+          </span>
+        </h2>
       </div>
-      <div className="mb-5 text-center rolling-view-more-wrapper">
-        <a
-          style={{ textDecoration: "none" }}
-          target="_blank" rel="noopener noreferrer"
-          href="https://ieee-tems-blogs.medium.com/"
+
+      {/* Gallery Container */}
+      <div 
+        ref={containerRef}
+        className="gallery-container-main"
+      >
+        {/* Gradients */}
+        <div className="gallery-gradient gallery-gradient-left" />
+        <div className="gallery-gradient gallery-gradient-right" />
+
+        {/* Carousel */}
+        <div 
+          className="gallery-carousel-wrapper"
+          onMouseDown={(e) => handleStart(e.clientX)}
+          onMouseMove={(e) => handleMove(e.clientX)}
+          onMouseUp={handleEnd}
+          onMouseLeave={handleEnd}
+          onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+          onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+          onTouchEnd={handleEnd}
         >
-          <button className="blogs-button">View More</button>
+          <div
+            className="gallery-carousel"
+            style={{
+              transform: `rotateY(${rotation}deg)`,
+              transition: isDragging ? 'none' : 'transform 0.1s linear'
+            }}
+          >
+            {images.map((item, i) => {
+              const angle = (360 / faceCount) * i;
+              return (
+                <div
+                  key={i}
+                  className="gallery-item"
+                  style={{
+                    width: isMobile ? '140px' : '220px',
+                    height: isMobile ? '140px' : '220px',
+                    transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
+                  }}
+                  onClick={() => handleImageClick(item.url)}
+                >
+                  <div className="gallery-item-inner">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="gallery-img"
+                      draggable="false"
+                    />
+                    {/* Hover overlay */}
+                    <div className="gallery-overlay">
+                      <div className="gallery-overlay-content">
+                        <p className="gallery-overlay-title">{item.title}</p>
+                        <p className="gallery-overlay-subtitle">Click to read</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* View More Button */}
+      <div className="gallery-button-wrapper">
+        <a
+          href="https://ieee-tems-blogs.medium.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="gallery-button-link"
+        >
+          <button className="gallery-button">
+            View More Blogs →
+          </button>
         </a>
       </div>
+
+      {/* Mobile Instructions */}
+      {isMobile && (
+        <div className="gallery-mobile-instruction">
+                  </div>
+      )}
     </section>
   );
 };
