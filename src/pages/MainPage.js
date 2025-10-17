@@ -212,7 +212,7 @@ const HomePage = () => {
                 Events
               </a>
               <a
-                href="#Blogs"
+                href="#Blog"
                 className="menu-elt"
                 style={menuItemStyle}
                 onClick={closeMenu}
