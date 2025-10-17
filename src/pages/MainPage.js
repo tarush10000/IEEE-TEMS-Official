@@ -105,7 +105,12 @@ const HomePage = () => {
 
   return (
     <div>
-      <section id="Home" style={{ background: "black" }}>
+      <section id="Home" style={{ 
+        background: "black", 
+        height: "100vh",
+        position: "relative",
+        zIndex: 1 
+      }}>
         <div id="homebg">
           <Silk
             speed={12.5}
@@ -113,6 +118,7 @@ const HomePage = () => {
             color="#008020"
             noiseIntensity={1.5}
             rotation={0.14}
+            style={{ zIndex: 0 }}
           />
         </div>
         <div id="homecontent">
@@ -292,14 +298,15 @@ const HomePage = () => {
         {/* PixelBlast as fixed background */}
         <div style={{ 
           position: 'fixed',
-          top: 0,
+          top: '10px',
           left: 0,
           width: '100vw', 
           height: '100vh', 
-          zIndex: -1,
+          zIndex: -10,
           pointerEvents: 'none',
           overflow: 'hidden',
-          willChange: 'transform'
+          willChange: 'transform',
+          background: 'black'
         }}>
           <PixelBlast
             variant="circle"
@@ -322,16 +329,18 @@ const HomePage = () => {
           />
         </div>
 
-        <About />
-        <Domains />
-        <Events />
-    {/* <Blog /> removed - Blog component disabled */}
-        <NewBlog />
-        <Board />
-        <Faculty />
-        <Memories />
-        <ContactSection />
-        <Footer />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <About />
+          <Domains />
+          <Events />
+      {/* <Blog /> removed - Blog component disabled */}
+          <NewBlog />
+          <Board />
+          <Faculty />
+          <Memories />
+          <ContactSection />
+          <Footer />
+        </div>
       </div>
     </div>
   );
