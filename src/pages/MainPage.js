@@ -311,7 +311,7 @@ const HomePage = () => {
           <PixelBlast
             variant="circle"
             pixelSize={6}
-            color="#008020"
+            color="#013f10"
             patternScale={3}
             patternDensity={1.4}
             pixelSizeJitter={0.5}
