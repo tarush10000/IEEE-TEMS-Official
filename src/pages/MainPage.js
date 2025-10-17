@@ -20,6 +20,7 @@ import "../CSS/MainPage.css";
 
 import NewBlog from "../components/NewBlog";
 import Silk from "../Silk/Silk";
+import PixelBlast from "../PixelBlast/PixelBlast";
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -58,6 +59,43 @@ const HomePage = () => {
     return () => { };
   }, [words]);
 
+  // Suppress ResizeObserver errors
+  useEffect(() => {
+    const resizeObserverErrorHandler = (e) => {
+      if (e.message === 'ResizeObserver loop completed with undelivered notifications.' ||
+          e.message === 'ResizeObserver loop limit exceeded') {
+        e.stopImmediatePropagation();
+        return false;
+      }
+    };
+    
+    const errorHandler = (event) => {
+      if (event.message && event.message.includes('ResizeObserver')) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        return false;
+      }
+    };
+    
+    window.addEventListener('error', resizeObserverErrorHandler);
+    window.addEventListener('error', errorHandler, true);
+    
+    // Also suppress unhandled rejection errors related to ResizeObserver
+    const unhandledRejectionHandler = (event) => {
+      if (event.reason && event.reason.message && event.reason.message.includes('ResizeObserver')) {
+        event.preventDefault();
+        return false;
+      }
+    };
+    window.addEventListener('unhandledrejection', unhandledRejectionHandler);
+    
+    return () => {
+      window.removeEventListener('error', resizeObserverErrorHandler);
+      window.removeEventListener('error', errorHandler, true);
+      window.removeEventListener('unhandledrejection', unhandledRejectionHandler);
+    };
+  }, []);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -67,7 +105,12 @@ const HomePage = () => {
 
   return (
     <div>
-      <section id="Home" style={{ background: "black" }}>
+      <section id="Home" style={{ 
+        background: "black", 
+        height: "100vh",
+        position: "relative",
+        zIndex: 1 
+      }}>
         <div id="homebg">
           <Silk
             speed={12.5}
@@ -75,6 +118,7 @@ const HomePage = () => {
             color="#008020"
             noiseIntensity={1.5}
             rotation={0.14}
+            style={{ zIndex: 0 }}
           />
         </div>
         <div id="homecontent">
@@ -212,7 +256,7 @@ const HomePage = () => {
                 Events
               </a>
               <a
-                href="#Blogs"
+                href="#Blog"
                 className="menu-elt"
                 style={menuItemStyle}
                 onClick={closeMenu}
@@ -249,16 +293,55 @@ const HomePage = () => {
         )}
       </section>
 
-      <About />
-      <Domains />
-      <Events />
-  {/* <Blog /> removed - Blog component disabled */}
-      <NewBlog />
-      <Board />
-      <Faculty />
-      <Memories />
-      <ContactSection />
-      <Footer />
+      {/* Container with PixelBlast background for all sections after home */}
+      <div style={{ position: 'relative', isolation: 'isolate' }}>
+        {/* PixelBlast as fixed background */}
+        <div style={{ 
+          position: 'fixed',
+          top: '10px',
+          left: 0,
+          width: '100vw', 
+          height: '100vh', 
+          zIndex: -10,
+          pointerEvents: 'none',
+          overflow: 'hidden',
+          willChange: 'transform',
+          background: 'black'
+        }}>
+          <PixelBlast
+            variant="circle"
+            pixelSize={6}
+            color="green"
+            patternScale={3}
+            patternDensity={1.2}
+            pixelSizeJitter={0.5}
+            enableRipples
+            rippleSpeed={0.4}
+            rippleThickness={0.12}
+            rippleIntensityScale={1.5}
+            liquid
+            liquidStrength={0.12}
+            liquidRadius={1.2}
+            liquidWobbleSpeed={5}
+            speed={0.6}
+            edgeFade={0.25}
+            transparent
+          />
+        </div>
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <About />
+          <Domains />
+          <Events />
+      {/* <Blog /> removed - Blog component disabled */}
+          <NewBlog />
+          <Board />
+          <Faculty />
+          <Memories />
+          <ContactSection />
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 };

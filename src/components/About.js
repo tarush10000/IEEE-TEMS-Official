@@ -1,11 +1,17 @@
 import React from "react";
 import "./About.css";
+
 const About = () => {
   return (
-    <section id="About">
+    <section id="About" style={{ padding: '20px' }}>
       <div
         className="container-fluid border-success rounded-5 text-white about-main"
-        style={{ borderRadius: "10px", marginBottom:"50px" }}
+        style={{ 
+          borderRadius: "10px", 
+          marginBottom: "50px",
+          border: "1px solid rgba(0, 255, 68, 0.2)",
+          padding: "30px",
+        }}
       >
         <h2 style={{paddingTop:"0px"}}>
           <span>
@@ -13,7 +19,7 @@ const About = () => {
           </span>
         </h2>
         <p className="about-sub">BRIDGING DIVERSE PRINCIPLES</p>
-        <div className="flex-container">
+        <div className="flex-container" style={{visibility: 'visible'}}>
           <div
             className="flex-element-1 flex-element"
             style={{ textAlign: "center" }}
@@ -41,3 +47,4 @@ const About = () => {
 };
 
 export default About;
+

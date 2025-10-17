@@ -1,30 +1,10 @@
 /* Enhanced About Us Section - Modernized Original Theme */
 #About {
-  background-color: rgb(22, 22, 22);
+  background-color: transparent;
   padding-top: 80px;
   margin: auto;
   width: 85%;
   position: relative;
-}
-
-/* Subtle animated background pattern */
-#About::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(0, 255, 170, 0.02) 50px, rgba(0, 255, 170, 0.02) 52px);
-  animation: subtleMove 30s linear infinite;
-  z-index: 1;
-  pointer-events: none;
-}
-
-@keyframes subtleMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(52px); }
 }
 
 .about-main {
@@ -40,6 +20,28 @@
   background: rgba(22, 22, 22, 0.95);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  overflow: hidden; /* CRITICAL: This contains all effects inside the box */
+}
+
+/* Animated background pattern - NOW CONTAINED inside .about-main */
+.about-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(0, 255, 170, 0.02) 50px, rgba(0, 255, 170, 0.02) 52px);
+  animation: subtleMove 30s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+@keyframes subtleMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(52px); }
 }
 
 .about-main:hover {
@@ -102,8 +104,8 @@
 #Board span::after,
 #Memories span::after,
 #ContactSection span::after,
-#Faculty span::after ,
-#Coordinator span::after ,
+#Faculty span::after,
+#Coordinator span::after,
 #About span::after,
 #Domains span::after {
   content: '';
@@ -216,7 +218,7 @@
   opacity: 1;
 }
 
-/* Floating particles effect */
+/* Floating particles effect - NOW CONTAINED inside .about-main */
 .about-main::after {
   content: '';
   position: absolute;
@@ -233,11 +235,18 @@
   pointer-events: none;
   z-index: 1;
   opacity: 0.4;
+  border-radius: 20px;
 }
 
 @keyframes particleFloat {
   0% { background-position: 0 0, 0 0; }
   100% { background-position: 100px 100px, -100px 100px; }
+}
+
+/* Ensure content appears above the effects */
+.about-main > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Responsive adjustments */
