@@ -298,7 +298,7 @@ const HomePage = () => {
         {/* PixelBlast as fixed background */}
         <div style={{ 
           position: 'fixed',
-          top: '10px',
+          top: '0px',
           left: 0,
           width: '100vw', 
           height: '100vh', 
@@ -311,9 +311,9 @@ const HomePage = () => {
           <PixelBlast
             variant="circle"
             pixelSize={6}
-            color="green"
+            color="#008020"
             patternScale={3}
-            patternDensity={1.2}
+            patternDensity={1.4}
             pixelSizeJitter={0.5}
             enableRipples
             rippleSpeed={0.4}

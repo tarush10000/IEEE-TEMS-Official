@@ -5,7 +5,7 @@ const ContactSection = () => {
   return (
     <section id="ContactSection"
       style={{
-        backgroundColor: "rgb(22, 22, 22)",
+        // backgroundColor: "rgb(22, 22, 22)",
         paddingBottom: "100px",
         paddingTop: "40px", // Added for scroll offset
         scrollMarginTop: "80px", // Ensures correct scroll position

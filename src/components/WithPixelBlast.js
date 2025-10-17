@@ -15,10 +15,10 @@ const WithPixelBlast = (WrappedComponent) => {
         }}>
           <PixelBlast
             variant="circle"
-            pixelSize={6}
-            color="#B19EEF"
+            pixelSize={3}
+            color="#008020"
             patternScale={3}
-            patternDensity={1.2}
+            patternDensity={1.4}
             pixelSizeJitter={0.5}
             enableRipples
             rippleSpeed={0.4}

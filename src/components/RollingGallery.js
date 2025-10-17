@@ -167,7 +167,7 @@ const RollingGallery = () => {
           className="gallery-button-link"
         >
           <button className="gallery-button">
-            View More Blogs →
+            View More
           </button>
         </a>
       </div>
