@@ -292,9 +292,35 @@
   }
 }
 
+/* Match Memories.css heading sizes for consistency */
+@media screen and (max-width: 768px) {
+  #Events h2,
+  #Blog h2,
+  #Board h2,
+  #Memories h2,
+  #ContactSection h2,
+  #Faculty h2,
+  #Coordinator h2,
+  #About h2,
+  #Domains h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+}
+
 @media screen and (max-width: 550px) {
-  #About h2 {
-    font-size: 5.5vw;
+  /* Match Memories.css heading sizes for consistency */
+  #Events h2,
+  #Blog h2,
+  #Board h2,
+  #Memories h2,
+  #ContactSection h2,
+  #Faculty h2,
+  #Coordinator h2,
+  #About h2,
+  #Domains h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
   }
 
   #About {
@@ -319,5 +345,21 @@
     padding-top: 15px;
     font-size: 3vw;
     padding: 15px;
+  }
+}
+
+/* Match Memories.css heading sizes for small phones */
+@media screen and (max-width: 480px) {
+  #Events h2,
+  #Blog h2,
+  #Board h2,
+  #Memories h2,
+  #ContactSection h2,
+  #Faculty h2,
+  #Coordinator h2,
+  #About h2,
+  #Domains h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
   }
 }

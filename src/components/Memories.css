@@ -198,7 +198,15 @@
         padding: 40px 0 80px 0;
     }
     
-    #Memories h2 {
+    #Events h2,
+#Blog h2,
+#Board h2,
+#Memories h2,
+#ContactSection h2,
+#Faculty h2,
+#Coordinator h2,
+#About h2,
+#Domains h2 {
         font-size: 28px;
         margin-bottom: 30px;
     }

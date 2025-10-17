@@ -2,16 +2,17 @@ import React from "react";
 import "./Memories.css";
 
 const images = [
-  { src: "img1.webp", alt: "Riviera, IEEE TEMS Vellore", caption: "" },
-  { src: "img2.webp", alt: "Ice-Breaking, IEEE TEMS Vellore", caption: "HackXpertise 2.0" },
-  { src: "img3.webp", alt: "Innovision, IEEE TEMS Vellore", caption: "" },
+  { src: "img1.webp", alt: "Riviera, IEEE TEMS Vellore", caption: "The Team" },
+  { src: "img2.webp", alt: "Ice-Breaking, IEEE TEMS Vellore", caption: "" },
+  { src: "img3.webp", alt: "Innovision, IEEE TEMS Vellore", caption: "HackXpertise 2.0" },
   { src: "img4.webp", alt: "Code Rush, IEEE TEMS Vellore", caption: "Expo Gravitas 2025" },
   { src: "img5.webp", alt: "Riviera, IEEE TEMS Vellore", caption: "" },
-  { src: "img6.webp", alt: "Gravitas, IEEE TEMS Vellore", caption: "" },
-  { src: "img8.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Gravitas 2025" },
-  { src: "img9.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Bouncing Castle" },
-  { src: "img10.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Gravitas 2025" },
-  { src: "img11.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Riviera 2025" }
+  { src: "img6.webp", alt: "Gravitas, IEEE TEMS Vellore", caption: "CodeRush 2.0" },
+  { src: "img8.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Squid Survivals" },
+  { src: "img9.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Expo Gravitas 2025" },
+  { src: "img10.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "" },
+  { src: "img11.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Bounty Castle" },
+  { src: "img12.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "HackXpertise" }
 ];
 
 const Memories = () => {
