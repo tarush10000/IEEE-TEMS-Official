@@ -2,13 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import "./RollingGallery.css";
 
 const IMGS = [
-  {src: "/Blogposts/bootstrap.webp", url: "https://ieee-tems-blogs.medium.com/introduction-guide-to-bootstrap-c2149dcd80cf", title: "Bootstrap Guide"},
-  {src: "/Blogposts/numpy.webp", url:"https://ieee-tems-blogs.medium.com/mastering-the-basics-of-numpy-a-step-by-step-guide-for-beginners-800bbd2337a6", title: "NumPy Basics"},
-  {src: "/Blogposts/responsive.webp", url:"https://ieee-tems-blogs.medium.com/responsive-web-design-creating-websites-for-all-devices-96aad294def1", title: "Responsive Design"},
-  {src: "/Blogposts/shellscript.webp", url:"https://ieee-tems-blogs.medium.com/effortless-email-sending-on-linux-a-step-by-step-project-guide-fb557b6bda8", title: "Shell Scripting"},
-  {src: "/Blogposts/Shellscripting.webp", url:"https://ieee-tems-blogs.medium.com/shell-scripting-to-schedule-your-day-with-crontab-and-notify-send-b320f0a8f57a", title: "Crontab Tutorial"},
-  {src: "/Blogposts/snapinsta.webp", url:"https://ieee-tems-blogs.medium.com/the-linux-weatherman-crafting-accurate-reports-from-scratch-8887a0b32a77", title: "Linux Weather"},
-  {src:"/Blogposts/tailwind.webp", url:"https://ieee-tems-blogs.medium.com/tailwind-more-than-just-inline-css-bd1a6a01a54c", title: "Tailwind CSS"}
+  {src: "/Blogposts/blog1.png", url: "https://ieee-tems-blogs.medium.com/mastering-css-media-queries-the-ultimate-guide-to-responsive-design-da5bbd414766"},
+  {src: "/Blogposts/blog2.png", url:"https://ieee-tems-blogs.medium.com/mastering-flexbox-a-fun-yet-powerful-css-journey-a7e045d399b8"},
+  {src: "/Blogposts/blog3.png", url:"https://ieee-tems-blogs.medium.com/navigating-the-frontend-landscape-lessons-learned-and-resources-that-work-8e835c61f51a"},
+  {src: "/Blogposts/blog4.png", url:"https://ieee-tems-blogs.medium.com/git-101-8193542d7f2c"},
+  {src: "/Blogposts/blog5.png", url:"https://ieee-tems-blogs.medium.com/mastering-flexbox-a-fun-yet-powerful-css-journey-a7e045d399b8"},
+  {src: "/Blogposts/blog6.png", url:"https://ieee-tems-blogs.medium.com/from-code-to-cloud-deploying-maven-projects-on-aws-3733e60a52ef"},
+  {src:"/Blogposts/blog7.png", url:"https://ieee-tems-blogs.medium.com/the-linux-weatherman-crafting-accurate-reports-from-scratch-8887a0b32a77"}
 ];
 
 const RollingGallery = () => {
