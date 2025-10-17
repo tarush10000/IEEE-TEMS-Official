@@ -12,7 +12,8 @@ const images = [
   { src: "img9.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Expo Gravitas 2025" },
   { src: "img10.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "" },
   { src: "img11.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "Bounty Castle" },
-  { src: "img12.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "HackXpertise" }
+  { src: "img12.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "HackXpertise" },
+  { src: "img13.webp", alt: "Team 2022-23, IEEE TEMS Vellore", caption: "HackXpertise" }
 ];
 
 const Memories = () => {
