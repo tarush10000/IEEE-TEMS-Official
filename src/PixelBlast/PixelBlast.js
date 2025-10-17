@@ -323,6 +323,7 @@ const PixelBlast = ({
 
   const threeRef = useRef(null);
   const prevConfigRef = useRef(null);
+  
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -397,18 +398,44 @@ const PixelBlast = ({
       const quad = new THREE.Mesh(quadGeom, material);
       scene.add(quad);
       const clock = new THREE.Clock();
+      
+      // Debounced resize handler to prevent ResizeObserver errors
+      let resizeTimeout = null;
       const setSize = () => {
-        const w = container.clientWidth || 1;
-        const h = container.clientHeight || 1;
-        renderer.setSize(w, h, false);
-        uniforms.uResolution.value.set(renderer.domElement.width, renderer.domElement.height);
-        if (threeRef.current?.composer)
-          threeRef.current.composer.setSize(renderer.domElement.width, renderer.domElement.height);
-        uniforms.uPixelSize.value = pixelSize * renderer.getPixelRatio();
+        if (resizeTimeout) clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          try {
+            const w = container.clientWidth || 1;
+            const h = container.clientHeight || 1;
+            renderer.setSize(w, h, false);
+            uniforms.uResolution.value.set(renderer.domElement.width, renderer.domElement.height);
+            if (threeRef.current?.composer)
+              threeRef.current.composer.setSize(renderer.domElement.width, renderer.domElement.height);
+            uniforms.uPixelSize.value = pixelSize * renderer.getPixelRatio();
+          } catch (e) {
+            // Silently handle resize errors
+          }
+        }, 16); // ~60fps
       };
+      
       setSize();
-      const ro = new ResizeObserver(setSize);
-      ro.observe(container);
+      
+      // Wrap ResizeObserver in try-catch
+      let ro;
+      try {
+        ro = new ResizeObserver((entries) => {
+          // Use requestAnimationFrame to avoid ResizeObserver loop errors
+          window.requestAnimationFrame(() => {
+            if (!entries || entries.length === 0) return;
+            setSize();
+          });
+        });
+        ro.observe(container);
+      } catch (e) {
+        // Fallback to window resize if ResizeObserver fails
+        window.addEventListener('resize', setSize);
+      }
+      
       const randomFloat = () => {
         if (typeof window !== 'undefined' && window.crypto?.getRandomValues) {
           const u32 = new Uint32Array(1);
@@ -524,7 +551,8 @@ const PixelBlast = ({
         timeOffset,
         composer,
         touch,
-        liquidEffect
+        liquidEffect,
+        resizeTimeout
       };
     } else {
       const t = threeRef.current;
@@ -554,6 +582,7 @@ const PixelBlast = ({
       if (threeRef.current && mustReinit) return;
       if (!threeRef.current) return;
       const t = threeRef.current;
+      if (t.resizeTimeout) clearTimeout(t.resizeTimeout);
       t.resizeObserver?.disconnect();
       cancelAnimationFrame(t.raf);
       t.quad?.geometry.dispose();
